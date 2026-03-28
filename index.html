@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRẮC NGHIỆM GIẢI PHẪU RUỘT GIÀ</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #818cf8; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #4f46e5; }
+        .option-transition { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        const rawQuizData = `
+CÂU HỎI TRẮC NGHIỆM GIẢI PHẪU RUỘT GIÀ
+TEAMDRCAT
+Tài liệu được biên soạn dựa trên kiến thức chuẩn Y HÀ NỘI
+Phần 1: Đại cương, Hình thể, và Cấu tạo Ruột già 
+Câu 1. Ruột già kéo dài từ cấu trúc nào đến cấu trúc nào?
+A. Từ góc tá hỗng tràng đến hậu môn.
+B. Từ lỗ của nhú hồi tràng đến hậu môn.
+C. Từ môn vị đến ống hậu môn.
+D. Từ manh tràng đến rìa hậu môn.
+Đáp án: B
+Giải thích: Ruột già được định nghĩa là đoạn ống tiêu hóa kéo dài từ lỗ của nhú hồi tràng đến hậu môn. Các lựa chọn khác mô tả các phần khác của ống tiêu hóa hoặc không chính xác về điểm bắt đầu.
+Câu 2. Đặc điểm nào sau đây KHÔNG phải là đặc điểm phân biệt ruột già với ruột non?
+A. Có kích thước lớn hơn.
+B. Lớp cơ dọc tập trung thành ba dải cơ dọc.
+C. Có các nhung mao để tăng diện tích hấp thu.
+D. Có các bướu đại tràng.
+Đáp án: C
+Giải thích: Ruột già khác biệt với ruột non ở các điểm: kích thước lớn hơn, cố định hơn, có các dải cơ dọc, các mẫu phụ mạc nối và các bướu đại tràng. Ruột non mới là nơi có các nhung mao và vi nhung mao để tăng diện tích hấp thu dưỡng chất, trong khi niêm mạc ruột già không có nhung mao.
+Câu 3. Cấu trúc nào sau đây được hình thành do sự co ngắn của các dải cơ dọc đại tràng?
+A. Các mẫu phụ mạc nối.
+B. Các nếp bán nguyệt.
+C. Bóng trực tràng.
+D. Các bướu đại tràng.
+Đáp án: D
+Giải thích: Các dải cơ dọc (dải sán đại tràng) có chiều dài ngắn hơn chiều dài của ruột già. Sự co rút của các dải cơ này làm cho thành ruột già bị dúm lại, tạo thành các túi phình được gọi là các bướu đại tràng. Đây là một trong những đặc điểm hình thể ngoài đặc trưng của đại tràng.
+Câu 4. Đoạn nào của ruột già sau đây thường được coi là tạng cố định (nằm sau phúc mạc)?
+A. Đại tràng ngang.
+B. Manh tràng.
+C. Đại tràng sigma.
+D. Đại tràng xuống.
+Đáp án: D
+Giải thích: Các đoạn ruột già di động (có mạc treo) và cố định (nằm sau phúc mạc) được sắp xếp xen kẽ nhau. Đại tràng xuống và đại tràng lên là các đoạn cố định, nằm sau phúc mạc và chỉ được phúc mạc che phủ mặt trước. Manh tràng, đại tràng ngang và đại tràng sigma là các đoạn di động do có mạc treo.
+Câu 5. Chiều dài trung bình của ruột già ở người lớn là bao nhiêu?
+A. Khoảng 1,0 m.
+B. Khoảng 1,5 m.
+C. Khoảng 2,0 m.
+D. Khoảng 2,5 m.
+Đáp án: B
+Giải thích: Ruột già ở người trưởng thành có chiều dài trung bình khoảng 1,5 m. Kích thước của nó lớn nhất ở manh tràng và nhỏ dần về phía đại tràng sigma.
+Câu 6. Tên gọi khác của góc đại tràng phải là gì?
+A. Góc lách.
+B. Góc Treitz.
+C. Góc gan.
+D. Góc sigma.
+Đáp án: C
+Giải thích: Góc đại tràng phải là nơi đại tràng lên gập góc để trở thành đại tràng ngang. Do vị trí của nó nằm ngay dưới mặt tạng của gan, nó còn được gọi là góc gan. Góc lách là tên gọi khác của góc đại tràng trái.
+Câu 7. Các dải cơ dọc KHÔNG có ở đoạn nào của ruột già?
+A. Manh tràng và đại tràng lên.
+B. Đại tràng ngang.
+C. Đại tràng xuống.
+D. Trực tràng và ống hậu môn.
+Đáp án: D
+Giải thích: Lớp cơ dọc của ruột già tập trung thành ba dải cơ dọc, nhưng đặc điểm này không tồn tại trên toàn bộ chiều dài của nó. Các dải cơ dọc này tỏa rộng và hợp nhất ở phần dưới đại tràng sigma, tạo thành một lớp cơ dọc hoàn chỉnh bao phủ toàn bộ chu vi của trực tràng. Do đó, trực tràng và ống hậu môn không có các dải cơ dọc riêng biệt và cũng không có bướu đại tràng.
+Câu 8. Các mẫu phụ mạc nối là gì?
+A. Các nếp gấp niêm mạc trong lòng ruột.
+B. Các túi chứa mỡ nằm rải rác trên bề mặt thanh mạc.
+C. Các nang bạch huyết trong lớp dưới niêm mạc.
+D. Các dải cơ trơn dọc theo thành ruột.
+Đáp án: B
+Giải thích: Các mẫu phụ mạc nối là các túi nhỏ chứa mô mỡ, được phúc mạc bao bọc, treo lủng lẳng trên bề mặt tự do của 4 đoạn đại tràng. Chúng là một trong ba đặc điểm hình thể ngoài giúp phân biệt đại tràng với ruột non.
+Câu 9. Trong thời kỳ bào thai, toàn bộ ruột già có đặc điểm gì về phúc mạc?
+A. Nằm hoàn toàn sau phúc mạc.
+B. Nằm hoàn toàn trong ổ phúc mạc và có mạc treo.
+C. Chỉ có đại tràng ngang có mạc treo.
+D. Nằm ngoài phúc mạc.
+Đáp án: B
+Giải thích: "Trong thời kỳ bào thai, toàn bộ ruột già có mạc treo." Sau quá trình quay và cố định của ống ruột, một số đoạn như đại tràng lên và đại tràng xuống mới trở thành tạng nằm sau phúc mạc, trong khi các đoạn khác như đại tràng ngang và đại tràng sigma vẫn giữ lại mạc treo.
+Câu 10. Ở đại tràng ngang, vị trí của các dải cơ dọc thay đổi như thế nào so với các đoạn khác?
+A. Chúng hội tụ lại thành một dải duy nhất.
+B. Chúng xoay 90∘.
+C. Chúng biến mất hoàn toàn.
+D. Chúng trở nên mỏng và khó xác định.
+Đáp án: B
+Giải thích: Do tính di động và vị trí của đại tràng ngang, vị trí các dải cơ dọc của nó xoay 90∘ so với đại tràng lên và xuống. Cụ thể, dải tự do (trước) trở thành dải dưới, dải mạc treo (sau-giữa) trở thành dải sau, và dải mạc nối (sau-bên) trở thành dải trên.
+Câu 11. Trên hình ảnh nội soi, lòng đại tràng ngang thường có dạng hình gì khi nhìn theo trục dọc?
+A. Hình tròn.
+B. Hình oval.
+C. Hình tam giác.
+D. Hình vuông.
+Đáp án: C
+Giải thích: Dạng nếp bướu ở đại tràng ngang rất rõ ràng, với các nếp bướu dài (thường là 3 nếp tại mỗi điểm cắt ngang) làm cho lòng ruột có dạng hình tam giác khi nhìn theo trục dọc, ví dụ như khi nội soi đại tràng.
+Câu 12. Đoạn nào của thành đại tràng được mô tả là mỏng nhất và có nguy cơ bị thủng cao nhất trong các thủ thuật nội soi điều trị?
+A. Đại tràng sigma và trực tràng.
+B. Đại tràng xuống.
+C. Manh tràng và đại tràng lên.
+D. Đại tràng ngang.
+Đáp án: C
+Giải thích: Thành đại tràng mỏng nhất ở vùng manh tràng và đại tràng lên. Do thành mỏng hơn, các đoạn này có nguy cơ bị thủng cao nhất trong các thủ thuật nội soi có can thiệp, chẳng hạn như cắt polyp.
+Câu 13. Cấu trúc nào sau đây KHÔNG phải là một trong 4 lớp cấu tạo của thành ruột già từ ngoài vào trong?
+A. Lớp thanh mạc.
+B. Lớp cơ.
+C. Lớp mỡ dưới da.
+D. Lớp dưới niêm mạc.
+Đáp án: C
+Giải thích: Thành ruột già, giống như các phần khác của ống tiêu hóa, được cấu tạo bởi 4 lớp từ ngoài vào trong: (1) lớp thanh mạc (hoặc vỏ ngoài ở các đoạn sau phúc mạc), (2) lớp cơ, (3) lớp dưới niêm mạc, và (4) lớp niêm mạc. Lớp mỡ dưới da là một phần của thành bụng, không phải của thành ruột.
+Câu 14. Đoạn ruột già nào liên tiếp với trực tràng ở ngang mức đốt sống cùng III?
+A. Đại tràng xuống.
+B. Đại tràng ngang.
+C. Đại tràng sigma.
+D. Manh tràng.
+Đáp án: C
+Giải thích: Đại tràng sigma là đoạn cuối cùng của đại tràng. Nó đi sâu xuống chậu hông và đến ngang mức đốt sống cùng III (S3​) thì liên tiếp với trực tràng.
+Câu 15. "Bóng trực tràng" là phần phình ra của trực tràng ở đâu?
+A. Phần ba trên.
+B. Phần ba giữa.
+C. Phần ba dưới, ngay trên ống hậu môn.
+D. Toàn bộ chiều dài của trực tràng.
+Đáp án: C
+Giải thích: Trực tràng có đường kính không đồng đều. Phần dưới của nó, ngay phía trên ống hậu môn, phình to ra để tạo thành bóng trực tràng, nơi chứa phân trước khi đại tiện.
+Câu 16. Ở trẻ sơ sinh và nhũ nhi, manh tràng và phần dưới đại tràng lên thường có đặc điểm gì so với người lớn?
+A. Cố định hơn.
+B. Di động hơn trên một mạc treo dài.
+C. Có kích thước nhỏ hơn tương đối.
+D. Không có ruột thừa.
+Đáp án: B
+Giải thích: Ở trẻ sơ sinh và nhũ nhi, quá trình cố định của ruột già vào thành bụng sau chưa hoàn tất. Do đó, manh tràng và phần dưới của đại tràng lên thường di động trên một mạc treo dài hơn so với người lớn, làm tăng nguy cơ xoắn manh tràng.
+Câu 17. Hình ảnh "hình ba lá đặc trưng" trên nội soi manh tràng được tạo bởi cấu trúc nào?
+A. Lỗ ruột thừa.
+B. Van hồi manh tràng.
+C. Sự hội tụ của ba dải cơ dọc.
+D. Các nếp bán nguyệt.
+Đáp án: C
+Giải thích: Tại phần manh tràng có bướu, ba dải cơ dọc hội tụ lại về phía gốc ruột thừa, tạo thành một hình ảnh đặc trưng giống như hình ba lá trên thành manh tràng khi quan sát qua nội soi.
+Câu 18. Phương pháp chẩn đoán hình ảnh nào sử dụng baryt thụt qua hậu môn để nhìn toàn bộ khung đại tràng?
+A. Chụp cắt lớp vi tính (CT scan).
+B. Chụp cộng hưởng từ (MRI).
+C. Siêu âm bụng.
+D. Chụp khung đại tràng cản quang.
+Đáp án: D
+Giải thích: Chụp khung đại tràng cản quang là một kỹ thuật X-quang, trong đó thuốc cản quang (baryt sulfat) được bơm vào ruột già qua đường hậu môn. Kỹ thuật này giúp làm hiện hình toàn bộ khung đại tràng, các góc gấp và hình thể các bướu đại tràng.
+Câu 19. "Các nếp bán nguyệt đại tràng" được tạo nên bởi những lớp nào của thành ruột?
+A. Chỉ lớp niêm mạc.
+B. Lớp niêm mạc và lớp dưới niêm mạc.
+C. Lớp cơ vòng và lớp cơ dọc.
+D. Toàn bộ các lớp của thành ruột.
+Đáp án: B
+Giải thích: Các nếp bán nguyệt là những nếp gấp ngang, không chạy hết chu vi thành ruột, nhô vào lòng đại tràng. Chúng được tạo nên bởi sự gấp nếp của lớp niêm mạc và lớp dưới niêm mạc, tương ứng với các rãnh giữa các bướu đại tràng ở mặt ngoài.
+Câu 20. Đoạn ruột già nào thường được đặc trưng bởi những bướu dạng túi rõ ràng và số lượng mẫu phụ mạc nối tăng lên?
+A. Đại tràng lên.
+B. Đại tràng ngang.
+C. Đại tràng xuống.
+D. Đại tràng sigma.
+Đáp án: D
+Giải thích: Mặc dù các bướu đại tràng có trên hầu hết đại tràng, nhưng chúng trở nên nhiều hơn và có dạng túi rõ ràng nhất ở đại tràng sigma. Số lượng các mẫu phụ mạc nối cũng thường tăng lên ở đoạn này.
+Câu 21. Tạng nào sau đây KHÔNG phải là tạng nằm sau phúc mạc?
+A. Đại tràng lên.
+B. Đại tràng xuống.
+C. Đại tràng ngang.
+D. Phần lớn tá tràng.
+Đáp án: C
+Giải thích: Đại tràng ngang có mạc treo đại tràng ngang treo nó vào thành bụng sau, do đó nó là một tạng di động nằm trong ổ phúc mạc. Ngược lại, đại tràng lên, đại tràng xuống và phần lớn tá tràng (trừ đoạn đầu) là các tạng nằm sau phúc mạc.
+Câu 22. Dải cơ dọc nào của đại tràng nằm ở bờ đối mạc treo (bờ tự do)?
+A. Dải mạc nối 
+B. Dải mạc treo đại tràng 
+C. Dải tự do 
+D. Dải sau-giữa.
+Đáp án: C
+Giải thích: Có ba dải cơ dọc: dải tự do nằm ở bờ trước, trên bờ đối mạc treo (bờ không có mạc treo bám vào); dải mạc nối nằm ở bờ sau-bên, nơi mạc nối lớn bám vào đại tràng ngang; và dải mạc treo đại tràng nằm dọc bờ sau-giữa, nơi mạc treo bám vào.
+Câu 23. Lớp mô liên kết mỏng ngăn cách các đoạn ruột già sau phúc mạc với các cấu trúc sau phúc mạc khác có đặc điểm gì quan trọng trong phẫu thuật?
+A. Chứa nhiều mạch máu lớn.
+B. Tạo thành một lớp vô mạch để phẫu tích.
+C. Rất dày và chắc chắn, khó bóc tách.
+D. Chứa các dây thần kinh quan trọng.
+Đáp án: B
+Giải thích: Các đoạn ruột già sau phúc mạc (đại tràng lên, xuống) được ngăn cách với các cấu trúc sau phúc mạc khác bằng một lớp mô liên kết mỏng. Lớp mô này tạo thành một mặt phẳng vô mạch, là một mốc giải phẫu quan trọng cho phẫu thuật viên để bóc tách, giải phóng đại tràng một cách an toàn.
+Câu 24. Trên hình ảnh nội soi, đặc điểm nào giúp nhận biết đang ở đại tràng sigma?
+A. Lòng ruột hình tam giác.
+B. Các nếp bướu ăn nông vào lòng ruột.
+C. Hình ảnh các mạch dưới niêm mạc dễ thấy hơn.
+D. Thấy rõ lỗ ruột thừa.
+Đáp án: C
+Giải thích: Trong lúc nội soi, hình ảnh các mạch máu dưới niêm mạc thường dễ thấy hơn ở đại tràng sigma so với các đoạn khác. Ngoài ra, do tính di động, chiều dài nhìn thấy được của nó có xu hướng ngắn hơn. Lòng ruột hình tam giác là đặc trưng của đại tràng ngang, và lỗ ruột thừa nằm ở manh tràng.
+Câu 25. Lớp cơ nào của thành ruột già chịu trách nhiệm chính cho việc tạo ra các bướu đại tràng?
+A. Lớp cơ vòng.
+B. Lớp cơ dọc (các dải sán).
+C. Cơ niêm.
+D. Cả cơ vòng và cơ dọc.
+Đáp án: B
+Giải thích: Các dải cơ dọc (dải sán) ngắn hơn chiều dài thực của đại tràng. Sự co rút trương lực của chúng làm cho thành ruột bị kéo dúm lại, tạo ra các bướu đại tràng. Lớp cơ vòng chỉ tạo thành các nếp gấp giữa các bướu.
+Câu 26. Case lâm sàng: Một bệnh nhân nam 65 tuổi, béo phì, đến khám vì đau bụng khu trú vùng hạ sườn trái. Chụp CT bụng cho thấy một cấu trúc hình bầu dục chứa mỡ, có viền tăng quang, viêm và dày lên, nằm cạnh thành đại tràng xuống. Chẩn đoán có khả năng nhất là gì?
+A. Viêm ruột thừa.
+B. Viêm túi thừa.
+C. Viêm mẫu phụ mạc nối.
+D. Ung thư đại tràng.
+Đáp án: C
+Giải thích: Mô tả trên CT là hình ảnh điển hình của viêm mẫu phụ mạc nối, là tình trạng viêm do xoắn hoặc huyết khối tĩnh mạch của một mẫu phụ mạc nối. Bệnh thường xảy ra ở người lớn tuổi, béo phì và hay gặp nhất ở đại tràng sigma và đại tràng xuống. Các mẫu phụ mạc nối là các túi mỡ đặc trưng của đại tràng, và khi bị viêm có thể gây ra các triệu chứng đau bụng cấp tính, dễ nhầm lẫn với viêm túi thừa hoặc viêm ruột thừa (nếu ở bên phải).
+Câu 27. Sự sắp xếp xen kẽ giữa các đoạn ruột già di động và cố định có ý nghĩa gì trong việc ngăn chặn sự lan rộng của nhiễm trùng?
+A. Hoàn toàn không có ý nghĩa.
+B. Các đoạn cố định hoạt động như hàng rào ngăn chặn sự lan truyền của dịch trong ổ phúc mạc.
+C. Các đoạn di động giúp cô lập ổ nhiễm trùng.
+D. Sự sắp xếp này làm tăng nguy cơ lan rộng nhiễm trùng.
+Đáp án: B
+Giải thích: Sự sắp xếp xen kẽ các đoạn di động và cố định có vai trò trong việc khu trú các quá trình bệnh lý. Các đoạn cố định (đại tràng lên, xuống) cùng với mạc treo của các đoạn di động (đại tràng ngang, sigma) giúp tạo ra các khoang và ngách trong ổ bụng (như các rãnh cạnh đại tràng). Các cấu trúc này có thể giới hạn sự lan truyền của dịch nhiễm trùng hoặc tế bào ung thư trong ổ phúc mạc.
+Câu 28. Cấu trúc nào sau đây KHÔNG phải là một trong ba dải cơ dọc của đại tràng?
+A. Dải tự do 
+B. Dải mạc nối 
+C. Dải mạc treo 
+D. Dải sau phúc mạc 
+Đáp án: D
+Giải thích: Ba dải cơ dọc được đặt tên theo vị trí và liên quan của chúng: dải tự do ở bờ đối diện mạc treo, dải mạc nối nơi mạc nối bám vào, và dải mạc treo nơi mạc treo bám vào. Không có dải nào được gọi là "dải sau phúc mạc".
+Câu 29. Mục đích của việc dựng hình ảo lòng đại tràng từ dữ liệu chụp CT đa dãy (MSCT) là gì?
+A. Đánh giá sự cấp máu cho đại tràng.
+B. Phát hiện các bệnh lý sau phúc mạc.
+C. Tầm soát polyp và khối u trên bề mặt niêm mạc (nội soi đại tràng ảo).
+D. Đo chiều dài chính xác của ruột già.
+Đáp án: C
+Giải thích: Kỹ thuật dựng hình ảo từ dữ liệu MSCT, còn gọi là nội soi đại tràng ảo, cho phép tái tạo hình ảnh 3D của bề mặt niêm mạc bên trong lòng ruột già. Mục đích chính là để phát hiện các bất thường như polyp hoặc khối u mà không cần thực hiện nội soi xâm lấn, với điều kiện ruột đã được làm sạch và làm căng trước khi chụp.
+Câu 30. Đoạn ruột già nào có đường kính lòng ruột thường nhỏ nhất?
+A. Manh tràng.
+B. Đại tràng lên.
+C. Đại tràng ngang.
+D. Đại tràng xuống.
+Đáp án: D
+Giải thích: Ruột già có kích thước lớn nhất ở manh tràng và đường kính của nó nhỏ dần về phía cuối. Đại tràng xuống thường có đường kính lòng ruột nhỏ nhất, điều này có thể liên quan đến việc phân ở đoạn này đã trở nên đặc hơn và nguy cơ tắc nghẽn do khối u ở đây cao hơn.
+Phần 2: Manh tràng, Ruột thừa, và Van hồi-manh tràng 
+Câu 31. Manh tràng nằm ở vị trí nào trong ổ bụng?
+A. Hố chậu trái.
+B. Hạ sườn phải.
+C. Hố chậu phải.
+D. Vùng thượng vị.
+Đáp án: C
+Giải thích: Manh tràng là đoạn đầu tiên của ruột già, có dạng một túi bịt lớn, nằm ở phần thấp của ổ bụng bên phải, trong hố chậu phải.
+Câu 32. Van hồi manh tràng có chức năng chính là gì?
+A. Tăng tốc độ vận chuyển dưỡng chấp vào ruột già.
+B. Ngăn trào ngược dưỡng chấp từ manh tràng vào hồi tràng.
+C. Tiết ra các enzyme tiêu hóa.
+D. Hấp thu vitamin B12.
+Đáp án: B
+Giải thích: Van hồi manh tràng, hay chính xác hơn là nhú hồi tràng, hoạt động như một van một chiều. Chức năng chính của nó là ngăn chặn dòng trào ngược của các chất chứa nhiều vi khuẩn từ manh tràng quay trở lại hồi tràng (là nơi tương đối vô trùng). Nó cũng có thể làm chậm quá trình vận chuyển các chất từ hồi tràng vào manh tràng.
+Câu 33. Ruột thừa thường xuất phát từ vị trí nào của manh tràng?
+A. Mặt trước, phía trên lỗ hồi tràng.
+B. Mặt sau trong, khoảng 2 cm dưới đầu tận của hồi tràng.
+C. Đáy của manh tràng, đối diện với đại tràng lên.
+D. Mặt ngoài, ngang mức lỗ hồi tràng.
+Đáp án: B
+Giải thích: Ruột thừa là một đoạn ruột hẹp, giống như con giun, xuất phát từ thành sau trong của manh tràng, nằm bên dưới chỗ đổ vào của hồi tràng khoảng 2 cm.
+Câu 34. Vị trí thường gặp nhất của ruột thừa trong lâm sàng là gì?
+A. Trước hồi tràng 
+B. Dưới manh tràng 
+C. Sau manh tràng 
+D. Trước manh tràng 
+Đáp án: C
+Giải thích: Vị trí của ruột thừa có thể thay đổi. Tuy nhiên, các vị trí hay gặp nhất trên lâm sàng là sau manh tràng hoặc sau đại tràng lên, và vị trí chậu hông.
+Câu 35. Mốc giải phẫu nào có thể được sử dụng làm "dải dẫn đường" để tìm ruột thừa trong phẫu thuật?
+A. Các mẫu phụ mạc nối trên manh tràng.
+B. Dải sán trước (dải tự do) của manh tràng.
+C. Nếp gấp giữa manh tràng và hồi tràng.
+D. Động mạch hồi đại tràng.
+Đáp án: B
+Giải thích: Ba dải sán (cơ dọc) trên manh tràng và đại tràng lên hội tụ lại tại gốc của ruột thừa. Trong phẫu thuật, dải sán trước (dải tự do) thường dễ thấy nhất và có thể được phẫu thuật viên lần theo nó đi xuống để xác định chính xác vị trí gốc ruột thừa, đặc biệt trong các trường hợp ruột thừa nằm ở vị trí bất thường.
+Câu 36. Case lâm sàng: Một bệnh nhân nam 20 tuổi vào viện vì đau bụng. Ban đầu, bệnh nhân cảm thấy đau âm ỉ, khó chịu quanh rốn. Sau khoảng 6 giờ, cơn đau di chuyển và khu trú tại hố chậu phải, đau nhói và tăng lên khi ho hoặc di chuyển. Cơ chế giải phẫu thần kinh nào giải thích cho sự di chuyển của cơn đau này?
+A. Cơn đau ban đầu do kích thích phúc mạc thành, sau đó lan vào phúc mạc tạng.
+B. Cơn đau ban đầu do kích thích các sợi cảm giác tạng (đau quy chiếu), sau đó do kích thích phúc mạc thành (đau thân thể).
+C. Cơn đau do co thắt cơ thành bụng.
+D. Cơn đau do tắc nghẽn niệu quản phải.
+Đáp án: B
+Giải thích: Đây là diễn biến kinh điển của cơn đau trong viêm ruột thừa. Giai đoạn đầu, lòng ruột thừa bị tắc nghẽn gây căng phồng, kích thích các sợi thần kinh cảm giác tạng đi cùng hệ giao cảm về đoạn tủy T10. Não bộ diễn giải tín hiệu này thành cơn đau quy chiếu ở vùng da tương ứng là quanh rốn. Khi tình trạng viêm tiến triển, nó lan ra đến phúc mạc thành lân cận. Phúc mạc thành được chi phối bởi các dây thần kinh thân thể, có khả năng định vị chính xác. Điều này gây ra cơn đau nhói, khu trú tại hố chậu phải (đau thân thể).
+Câu 37. Động mạch ruột thừa là nhánh của động mạch nào?
+A. Động mạch mạc treo tràng dưới.
+B. Động mạch đại tràng phải.
+C. Động mạch hồi đại tràng.
+D. Động mạch chậu trong.
+Đáp án: C
+Giải thích: Động mạch ruột thừa thường tách ra từ động mạch hồi đại tràng, cụ thể là từ nhánh manh tràng sau. Động mạch hồi đại tràng là một nhánh của động mạch mạc treo tràng trên.
+Câu 38. Đặc điểm cấp máu nào của động mạch ruột thừa làm cho đoạn xa ruột thừa dễ bị hoại tử khi bị viêm?
+A. Nó có rất nhiều vòng nối với các động mạch lân cận.
+B. Nó là một động mạch tận ở đoạn xa.
+C. Nó có đường kính rất lớn.
+D. Nó đi bên ngoài mạc treo ruột thừa.
+Đáp án: B
+Giải thích: Đoạn gần của động mạch ruột thừa có thể có một số nối tiếp, nhưng đoạn xa của nó là một động mạch tận, nghĩa là không có tuần hoàn bàng hệ (vòng nối) đáng kể. Khi ruột thừa bị viêm và sưng nề, áp lực trong mạc treo tăng lên có thể chèn ép và gây huyết khối động mạch này. Sự tắc nghẽn một động mạch tận sẽ dẫn đến thiếu máu cục bộ và hoại tử phần ruột thừa mà nó cấp máu, thường là đoạn xa (đỉnh ruột thừa).
+Câu 39. Cấu trúc nào KHÔNG phải là thành phần tạo nên nhú hồi tràng (van hồi manh tràng)?
+A. Lớp niêm mạc ruột non.
+B. Lớp cơ vòng của hồi tràng.
+C. Một cơ vòng thực sự, biệt hóa rõ ràng.
+D. Các sợi sâu của lớp cơ dọc hồi tràng.
+Đáp án: C
+Giải thích: Nhú hồi tràng được tạo nên bởi sự gấp đôi của lớp niêm mạc, lớp dưới niêm mạc, lớp cơ vòng và các sợi sâu của lớp cơ dọc từ hồi tràng lồng vào lòng ruột già. Tuy nhiên,"có rất ít bằng chứng cho thấy có một cơ vòng thực sự ở đây", nghĩa là nó không phải là một cơ thắt giải phẫu đúng nghĩa.
+Câu 40. Mạc treo ruột thừa thường nối ruột thừa với cấu trúc nào?
+A. Thành bụng sau.
+B. Phần dưới của mạc treo hồi tràng.
+C. Manh tràng.
+D. Mạc nối lớn.
+Đáp án: B
+Giải thích: Ruột thừa được kết nối với phần dưới của mạc treo hồi tràng bởi một mạc treo riêng hình tam giác, ngắn, gọi là mạc treo ruột thừa. Mạc treo này chứa động mạch, tĩnh mạch và bạch huyết của ruột thừa.
+Câu 41. Case lâm sàng: Một bệnh nhân nữ 25 tuổi, có thai 30 tuần, bị nghi ngờ viêm ruột thừa. Vị trí đau và điểm ấn đau có khả năng nằm ở đâu so với một phụ nữ không mang thai?
+A. Thấp hơn và gần đường giữa hơn.
+B. Cao hơn và ra ngoài hơn, có thể ở vùng hạ sườn phải.
+C. Ở hố chậu trái.
+D. Không thay đổi vị trí.
+Đáp án: B
+Giải thích: Khi tử cung lớn dần trong thai kỳ, nó sẽ đẩy manh tràng và ruột thừa lên trên và ra ngoài. Do đó, ở một phụ nữ mang thai ở tam cá nguyệt thứ ba, vị trí của ruột thừa bị viêm và điểm đau khu trú sẽ không còn ở hố chậu phải kinh điển (điểm McBurney) mà thường bị đẩy lên cao, có thể đến vùng hông phải hoặc thậm chí hạ sườn phải, gây khó khăn cho chẩn đoán.
+Câu 42. Lỗ ruột thừa mở vào manh tràng có đặc điểm hình thái nào trên nội soi?
+A. Có dạng hình tam giác.
+B. Được che bởi một nếp gấp niêm mạc tạo thành hình "cánh cung đã lên dây".
+C. Luôn luôn mở rộng.
+D. Nằm ngay trên lỗ hồi tràng.
+Đáp án: B
+Giải thích: Lỗ thông của ruột thừa vào manh tràng đôi khi được che bởi một nếp gấp niêm mạc thẳng. Nếp gấp này tạo cho lỗ ruột thừa một hình ảnh đặc trưng giống như một "cánh cung đã lên dây". Đây là một dấu hiệu hữu ích để nhận diện lỗ ruột thừa khi nội soi.
+Câu 43. Yếu tố nào ở người cao tuổi có thể giải thích tại sao tỷ lệ viêm ruột thừa ở độ tuổi này thấp hơn?
+A. Ruột thừa dài ra.
+B. Mô bạch huyết ruột thừa thoái triển làm lòng ruột thừa rộng hơn.
+C. Hệ miễn dịch hoạt động mạnh hơn.
+D. Nhu động ruột giảm.
+Đáp án: B
+Giải thích: Thành ruột thừa chứa nhiều mô bạch huyết (nang bạch huyết chùm). Ở người trẻ, sự phì đại của các mô này có thể gây tắc nghẽn lòng ruột thừa, dẫn đến viêm. Ở người cao tuổi, mô bạch huyết này có xu hướng thoái triển và teo đi, làm cho lòng ruột thừa trở nên rộng hơn và do đó ít có khả năng bị tắc nghẽn hơn.
+Câu 44. Manh tràng liên quan với cơ nào ở phía sau?
+A. Cơ vuông thắt lưng.
+B. Cơ chậu.
+C. Cơ thắt lưng chậu.
+D. Cơ ngang bụng.
+Đáp án: C
+Giải thích: Manh tràng nằm trong hố chậu phải, mặt sau của nó liên quan trực tiếp với cơ thắt lưng chậu. Thần kinh bì đùi ngoài thường nằm xen giữa manh tràng và cơ này.
+Câu 45. Tình trạng xoắn manh tràng có thể xảy ra trong điều kiện giải phẫu nào?
+A. Manh tràng nằm sau phúc mạc.
+B. Manh tràng và đại tràng lên di động trên một mạc treo chung dài và có rễ hẹp.
+C. Ruột thừa rất dài.
+D. Van hồi manh tràng bị hẹp.
+Đáp án: B
+Giải thích: Thông thường, manh tràng có thể di động nhưng đại tràng lên thì cố định. Trong một số biến thể giải phẫu, cả manh tràng và đại tràng lên đều di động trên một mạc treo chung. Nếu mạc treo này dài nhưng có một gốc (rễ) bám hẹp, khối manh tràng - đại tràng lên có thể xoay quanh gốc mạc treo này, gây ra xoắn ruột.
+Câu 46. Case lâm sàng: Một bệnh nhân nam 30 tuổi được chẩn đoán viêm ruột thừa cấp. Khi phẫu thuật, phẫu thuật viên thấy ruột thừa nằm sau manh tràng và dính chặt. Việc bóc tách ruột thừa có nguy cơ làm tổn thương cấu trúc thần kinh nào nằm ngay sau manh tràng?
+A. Thần kinh tọa.
+B. Thần kinh đùi.
+C. Thần kinh bì đùi ngoài.
+D. Thần kinh bịt.
+Đáp án: C
+Giải thích: Manh tràng và ruột thừa sau manh tràng nằm ngay phía trước cơ thắt lưng chậu. Thần kinh bì đùi ngoài chạy xuống trên bề mặt cơ này, ngay sau manh tràng. Phẫu thuật bóc tách một ruột thừa viêm dính ở vị trí sau manh tràng có thể làm tổn thương dây thần kinh này, gây ra tình trạng đau rát hoặc tê bì ở mặt ngoài đùi sau mổ.
+Câu 47. Nhú hồi tràng (van hồi manh tràng) được tạo thành bởi sự lồng vào của hồi tràng vào vị trí nối của cấu trúc nào?
+A. Chỉ manh tràng.
+B. Chỉ đại tràng lên.
+C. Chỗ nối của manh tràng và đại tràng lên.
+D. Chỗ nối của manh tràng và ruột thừa.
+Đáp án: C
+Giải thích: Hồi tràng mở vào mặt sau trong của ruột già tại chính chỗ nối giữa manh tràng và đại tràng lên. Do đó, nhú hồi tràng có hai mép: mép trên (mép hồi-đại tràng) và mép dưới (mép hồi-manh tràng).
+Câu 48. Lớp cơ nào của hồi tràng KHÔNG tham gia vào việc tạo thành các mép của nhú hồi tràng?
+A. Lớp cơ vòng.
+B. Các sợi sâu của lớp cơ dọc.
+C. Các sợi nông của lớp cơ dọc.
+D. Tất cả các lớp cơ đều tham gia.
+Đáp án: C
+Giải thích: Các mép của nhú hồi tràng được tạo nên bởi sự gấp đôi của lớp niêm mạc, lớp cơ vòng và các sợi sâu của lớp cơ dọc hồi tràng. Các sợi cơ dọc ở lớp nông hơn và lớp phúc mạc thì liên tục không gián đoạn từ ruột non sang ruột già mà không gấp vào để tạo thành nhú.
+Câu 49. Case lâm sàng: Một bệnh nhân nữ 18 tuổi có triệu chứng viêm ruột thừa. Khi phẫu thuật, ruột thừa được tìm thấy treo qua vành chậu hông, nằm gần các cấu trúc sinh dục phải. Đây là vị trí nào của ruột thừa?
+A. Sau manh tràng 
+B. Dưới manh tràng 
+C. Chậu hông 
+D. Sau hồi tràng 
+Đáp án: C
+Giải thích: Vị trí ruột thừa chậu hông (hay ruột thừa xuống) là khi ruột thừa treo qua vành chậu hông và đi vào trong chậu hông bé. Ở nữ giới, nó có thể nằm rất gần với vòi tử cung và buồng trứng phải. Viêm ruột thừa ở vị trí này có thể gây ra các triệu chứng phụ khoa và dễ bị chẩn đoán nhầm với các bệnh lý của buồng trứng hoặc vòi tử cung.
+Câu 50. Chiều dài của ruột thừa có đặc điểm gì?
+A. Hằng định ở mọi lứa tuổi, khoảng 9 cm.
+B. Thay đổi từ 2 - 20 cm, thường tương đối dài hơn ở trẻ em.
+C. Ngắn hơn ở trẻ em và dài ra ở người già.
+D. Luôn luôn ngắn hơn 5 cm.
+Đáp án: B
+Giải thích: Chiều dài của ruột thừa rất thay đổi, có thể từ 2 cm đến 20 cm. Nó thường tương đối dài hơn ở trẻ em và có thể bị teo và ngắn lại sau tuổi trung niên.
+Câu 51. Trong viêm ruột thừa, cảm giác đau quy chiếu ra vùng quanh rốn là do sự kích thích các sợi cảm giác tạng đi theo các sợi thần kinh nào?
+A. Thần kinh đối giao cảm (Thần kinh X).
+B. Thần kinh giao cảm (từ các thần kinh tạng).
+C. Thần kinh hoành.
+D. Thần kinh thẹn.
+Đáp án: B
+Giải thích: Ruột thừa và phúc mạc tạng không có thụ thể đau mà chỉ có thụ thể cảm nhận sự căng phồng. Các sợi cảm giác tạng này đi cùng với các sợi thần kinh tự chủ (giao cảm) về các đoạn tủy ngực tương ứng (khoảng T10). Do đó, khi ruột thừa bị căng phồng ở giai đoạn đầu của viêm, não bộ sẽ nhận biết cơn đau này như thể nó đến từ vùng da được chi phối bởi đoạn tủy T10, tức là vùng quanh rốn.
+Câu 52. "Hãm của lỗ hồi tràng" là gì?
+A. Là mép trên của van hồi manh tràng.
+B. Là mép dưới của van hồi manh tràng.
+C. Là chỗ gặp nhau của hai mép trên và dưới.
+D. Là một cơ thắt nhỏ ở lỗ hồi tràng.
+Đáp án: C
+Giải thích: Van hồi manh tràng có hai mép (trên và dưới). Các đầu của hai mép này gặp nhau và nối với nhau tại những chỗ được gọi là hãm của lỗ hồi tràng.
+Câu 53. Trên phim X-quang bụng không chuẩn bị, dấu hiệu nào có thể gợi ý viêm ruột thừa?
+A. Mức nước-hơi ở đại tràng ngang.
+B. Sỏi phân cản quang ở vùng hố chậu phải.
+C. Khí tự do dưới cơ hoành.
+D. Dày thành dạ dày.
+Đáp án: B
+Giải thích: Mặc dù không phải là dấu hiệu thường gặp, nhưng việc nhìn thấy một sỏi phân (một viên phân nhỏ bị vôi hóa) có độ cản quang trên phim X-quang, nằm ở vị trí giải phẫu của ruột thừa (hố chậu phải), là một dấu hiệu gợi ý mạnh mẽ đến viêm ruột thừa cấp do tắc nghẽn. Sỏi phân là một trong những nguyên nhân phổ biến gây tắc nghẽn lòng ruột thừa.
+Câu 54. Tại sao việc xác định vị trí ruột thừa trước mổ lại quan trọng?
+A. Để quyết định có nên dùng kháng sinh hay không.
+B. Để lựa chọn đường rạch da phẫu thuật phù hợp và dự đoán các khó khăn kỹ thuật.
+C. Để xác định liều lượng thuốc gây mê.
+D. Chỉ có ý nghĩa về mặt học thuật.
+Đáp án: B
+Giải thích: Việc biết trước vị trí của ruột thừa (ví dụ qua siêu âm hoặc CT) giúp phẫu thuật viên lập kế hoạch mổ tốt hơn. Ví dụ, với ruột thừa sau manh tràng, có thể cần một đường rạch khác hoặc cần phải huy động manh tràng nhiều hơn. Với ruột thừa trong chậu hông, phẫu thuật nội soi có thể thuận lợi hơn. Việc này giúp giảm thiểu tổn thương các cấu trúc lân cận và rút ngắn thời gian phẫu thuật.
+Câu 55. Sự co thắt của cơ trơn trong nhú hồi tràng được chi phối bởi hệ thần kinh nào?
+A. Giao cảm.
+B. Đối giao cảm.
+C. Thân thể.
+D. Không có sự chi phối thần kinh.
+Đáp án: A
+Giải thích: Nhú hồi tràng có thể làm chậm quá trình vận chuyển của các chất trong hồi tràng vào manh tràng khi cơ trơn của nhú bị co lại do kích thích của hệ thần kinh giao cảm.
+Câu 56. Mặt trước của manh tràng thường tiếp xúc trực tiếp với cấu trúc nào?
+A. Thận phải.
+B. Tá tràng.
+C. Thành bụng trước.
+D. Tử cung.
+Đáp án: C
+Giải thích: Manh tràng nằm ở hố chậu phải, và mặt trước của nó thường tiếp xúc trực tiếp với thành bụng trước. Điều này giải thích tại sao có thể sờ thấy manh tràng hoặc cảm nhận được dấu hiệu phản ứng thành bụng tại đây khi có viêm nhiễm.
+Câu 57. Trên hình ảnh nội soi, "mũi tên tưởng tượng" từ lỗ ruột thừa hình cánh cung thường chỉ về hướng nào?
+A. Cực dưới của manh tràng.
+B. Đại tràng lên.
+C. Nhú hồi tràng (van hồi manh tràng).
+D. Thành bụng trước.
+Đáp án: C
+Giải thích: Nếp gấp niêm mạc tạo hình "cánh cung" ở lỗ ruột thừa có xu hướng nằm song song với thành trong của manh tràng và nhú hồi tràng. Một "mũi tên" tưởng tượng được vẽ từ dây cung qua cánh cung sẽ chỉ theo hướng của nhú hồi tràng. Đây là một mốc định hướng hữu ích cho bác sĩ nội soi.
+Câu 58. Cấu trúc nào trong lớp dưới niêm mạc của ruột thừa có vai trò trong hệ miễn dịch?
+A. Các tuyến tiết nhầy.
+B. Các nang bạch huyết chùm.
+C. Các đám rối tĩnh mạch.
+D. Các sợi cơ trơn.
+Đáp án: B
+Giải thích: Lớp dưới niêm mạc của ruột thừa rất giàu các nang bạch huyết chùm, tương tự như các mảng Peyer ở hồi tràng. Các cấu trúc này là một phần của mô bạch huyết liên quan đến ruột (GALT) và đóng vai trò trong chức năng miễn dịch. Sự phì đại của chúng cũng là một nguyên nhân phổ biến gây viêm ruột thừa.
+Câu 59. Nếu manh tràng có một mạc treo dài và di động, nó có thể gây ra tình trạng lâm sàng nào?
+A. Viêm túi thừa.
+B. Xoắn manh tràng.
+C. Trĩ.
+D. Ung thư đại tràng.
+Đáp án: B
+Giải thích: Bình thường, manh tràng có thể di động nhưng không quá nhiều. Trong trường hợp manh tràng và phần đầu đại tràng lên có một mạc treo chung dài và lỏng lẻo, chúng có thể xoay quanh trục của mạc treo, gây ra tình trạng xoắn manh tràng, một dạng tắc ruột cơ học cần cấp cứu ngoại khoa.
+Câu 60. Case lâm sàng: Một bệnh nhân bị viêm ruột thừa sau manh tràng. Khi khám lâm sàng, dấu hiệu nào sau đây có thể dương tính?
+A. Dấu hiệu Murphy (ấn túi mật).
+B. Dấu hiệu Psoas (đau khi duỗi đùi phải).
+C. Dấu hiệu Kehr (đau vai trái).
+D. Dấu hiệu Cullen (bầm tím quanh rốn).
+Đáp án: B
+Giải thích: Khi ruột thừa nằm ở vị trí sau manh tràng, nó sẽ nằm ngay trên cơ thắt lưng. Tình trạng viêm của ruột thừa có thể kích thích cơ này. Dấu hiệu Psoas dương tính khi bệnh nhân cảm thấy đau ở hố chậu phải khi bác sĩ thụ động duỗi đùi phải của bệnh nhân (khi bệnh nhân nằm nghiêng trái) hoặc khi bệnh nhân chủ động gập đùi phải chống lại lực cản. Dấu hiệu này rất gợi ý cho một ruột thừa nằm sau manh tràng.
+Phần 3: Các đoạn Đại tràng (Lên, Ngang, Xuống, Sigma) 
+Câu 61. Đại tràng lên dài khoảng bao nhiêu và kết thúc ở đâu?
+A. 25 cm, kết thúc ở góc đại tràng trái.
+B. 15 cm, kết thúc ở góc đại tràng phải (góc gan).
+C. 50 cm, kết thúc ở góc đại tràng trái.
+D. 10 cm, kết thúc ở manh tràng.
+Đáp án: B
+Giải thích: Đại tràng lên dài khoảng 15 cm, đi lên từ manh tràng trong hố chậu phải đến mặt tạng của gan, nơi nó gập góc ra trước và sang trái để tạo thành góc đại tràng phải (góc gan).
+Câu 62. Mặt sau của góc đại tràng phải (góc gan) liên quan trực tiếp với cấu trúc nào?
+A. Lách.
+B. Phần xuống của tá tràng và cực dưới của thận phải.
+C. Đầu tụy.
+D. Dạ dày.
+Đáp án: B
+Giải thích: Góc đại tràng phải là một cấu trúc sau phúc mạc. Mặt sau không có phúc mạc phủ của nó tiếp xúc trực tiếp với mạc phủ mặt trước của cực dưới thận phải. Mặt trong của nó liên quan với phần xuống của tá tràng.
+Câu 63. Đại tràng ngang được treo vào thành bụng sau bởi cấu trúc nào?
+A. Dây chằng vị-đại tràng.
+B. Mạc nối lớn.
+C. Mạc treo đại tràng ngang.
+D. Dây chằng hoành-đại tràng.
+Đáp án: C
+Giải thích: Đại tràng ngang là một đoạn di động, được treo vào thành bụng sau bởi một nếp phúc mạc kép gọi là mạc treo đại tràng ngang. Rễ của mạc treo này bám dọc theo bờ trước của thân tụy.
+Câu 64. Hội chứng Chilaiditi là tình trạng gì?
+A. Đại tràng sigma xoắn quanh mạc treo của nó.
+B. Đại tràng ngang nằm chen giữa gan và cơ hoành.
+C. Ruột thừa bị viêm nằm trong chậu hông.
+D. Sa trực tràng qua lỗ hậu môn.
+Đáp án: B
+Giải thích: Do đại tràng ngang có mạc treo và rất di động, đôi khi nó có thể di chuyển lên vị trí bất thường, nằm chen vào giữa mặt trên của gan và vòm hoành phải. Tình trạng này được gọi là hội chứng Chilaiditi. Trên phim X-quang ngực, nó có thể bị nhầm với khí tự do trong ổ bụng (liềm hơi dưới hoành).
+Câu 65. So với góc đại tràng phải, góc đại tràng trái có đặc điểm gì?
+A. Nằm thấp hơn và ít nhọn hơn.
+B. Nằm cao hơn, sau hơn và nhọn hơn.
+C. Di động hơn.
+D. Được cấp máu hoàn toàn bởi động mạch mạc treo tràng trên.
+Đáp án: B
+Giải thích: Góc đại tràng trái (góc lách) thường nằm ở vị trí cao hơn và sâu hơn (ra sau hơn) so với góc đại tràng phải. Góc gập của nó cũng thường nhọn hơn. Nó được cố định một phần bởi dây chằng hoành-đại tràng.
+Câu 66. Dây chằng hoành-đại tràng có vai trò gì?
+A. Nối đại tràng ngang với dạ dày.
+B. Treo góc đại tràng trái vào cơ hoành.
+C. Nối góc đại tràng phải với gan.
+D. Chứa động mạch đại tràng giữa.
+Đáp án: B
+Giải thích: Dây chằng hoành-đại tràng là một nếp phúc mạc chạy từ góc đại tràng trái đến cơ hoành ở ngang mức xương sườn X và XI. Nó có vai trò nâng đỡ cho góc lách và cũng tạo thành một phần sàn nâng đỡ cho lách.
+Câu 67. Khi thực hiện phẫu thuật cắt đại tràng và kéo mạnh góc đại tràng trái, có nguy cơ làm tổn thương tạng nào gần đó?
+A. Gan.
+B. Thận phải.
+C. Lách.
+D. Tá tràng.
+Đáp án: C
+Giải thích: Góc đại tràng trái nằm ngay phía dưới và trong so với cực dưới của lách, và đôi khi có thể dính vào bao lách hoặc rốn lách. Do mối liên quan mật thiết này, nếu kéo mạnh góc đại tràng trái một cách vô ý trong khi phẫu thuật, có thể gây rách bao lách hoặc tổn thương các mạch máu ở rốn lách, dẫn đến chảy máu nghiêm trọng.
+Câu 68. Đại tràng xuống nằm ở vị trí nào và có đặc điểm gì so với đại tràng lên?
+A. Nằm ở bên phải, đường kính lớn hơn.
+B. Nằm ở bên trái, đường kính nhỏ hơn và nằm sâu hơn.
+C. Nằm ở giữa bụng, di động.
+D. Nằm trong chậu hông, có mạc treo.
+Đáp án: B
+Giải thích: Đại tràng xuống đi từ góc lách xuống hố chậu trái. So với đại tràng lên, nó thường có đường kính lòng ruột nhỏ hơn, nằm ở vị trí sâu hơn trong ổ bụng và thường được phúc mạc che phủ phía sau nhiều hơn.
+Câu 69. Đại tràng sigma được treo vào thành bụng sau bởi mạc treo có hình dạng gì?
+A. Hình tam giác.
+B. Hình quạt, với rễ hình chữ V ngược.
+C. Hình vuông.
+D. Hình dải băng dài.
+Đáp án: B
+Giải thích: Đại tràng sigma được treo bởi mạc treo đại tràng sigma có hình quạt. Rễ của mạc treo này bám vào thành chậu hông sau theo hình chữ V ngược. Đỉnh của chữ V nằm gần chỗ chia của động mạch chậu chung trái.
+Câu 70. Case lâm sàng: Một bệnh nhân nam lớn tuổi, táo bón kinh niên, vào viện cấp cứu vì đau bụng, chướng bụng và không trung tiện được. Phim X-quang bụng cho thấy hình ảnh một quai ruột giãn rất to hình "hạt cà phê" hay "ống săm xe gập lại". Chẩn đoán có khả năng nhất là gì?
+A. Tắc ruột non.
+B. Xoắn manh tràng.
+C. Xoắn đại tràng sigma.
+D. Liệt ruột cơ năng.
+Đáp án: C
+Giải thích: Hình ảnh X-quang mô tả là dấu hiệu kinh điển của xoắn đại tràng sigma. Tình trạng này xảy ra khi một quai đại tràng sigma dài và dư thừa xoay quanh trục của mạc treo có rễ hẹp của nó. Điều này gây ra tắc nghẽn ruột kiểu quai kín và có nguy cơ thiếu máu, hoại tử đoạn ruột bị xoắn. Bệnh thường gặp ở người lớn tuổi, có tiền sử táo bón.
+Câu 71. Yếu tố giải phẫu nào làm tăng nguy cơ xoắn đại tràng sigma?
+A. Đại tràng sigma ngắn và rễ mạc treo rộng.
+B. Đại tràng sigma dài và rễ mạc treo ngắn (hẹp).
+C. Đại tràng sigma nằm sau phúc mạc.
+D. Không có các mẫu phụ mạc nối trên đại tràng sigma.
+Đáp án: B
+Giải thích: Cơ chế của xoắn đại tràng sigma là sự kết hợp của một quai ruột dài, nặng (do chứa nhiều phân) và một điểm tựa (trục xoay) hẹp. Do đó, những người có đại tràng sigma dài nhưng rễ mạc treo lại ngắn và hẹp sẽ có nguy cơ bị xoắn cao nhất.
+Câu 72. Ở nam giới, đại tràng sigma khi đi ngang qua chậu hông thường nằm giữa hai tạng nào?
+A. Trực tràng và bàng quang.
+B. Bàng quang và xương mu.
+C. Trực tràng và xương cùng.
+D. Hai niệu quản.
+Đáp án: A
+Giải thích: Khi đại tràng sigma đi ngang trong chậu hông bé, nó thường vắt qua đường giữa, nằm ở vị trí giữa trực tràng ở phía sau và bàng quang ở phía trước.
+Câu 73. Cấu trúc nào sau đây KHÔNG nằm trong liên quan sau của đại tràng sigma?
+A. Các mạch tuyến sinh dục trái.
+B. Niệu quản trái.
+C. Cơ hình lê và đám rối cùng trái.
+D. Các quai hồi tràng.
+Đáp án: D
+Giải thích: Các liên quan sau của đại tràng sigma bao gồm các cấu trúc nằm trên thành chậu hông sau như niệu quản trái, các mạch sinh dục trái, động mạch chậu trong trái, cơ hình lê và đám rối cùng. Các quai hồi tràng thường nằm ở phía trên và bên phải của đại tràng sigma.
+Câu 74. Vị trí và hình dạng của đại tràng sigma có thể thay đổi tùy thuộc vào yếu tố nào sau đây?
+A. Tình trạng căng giãn của bàng quang và trực tràng.
+B. Chiều dài của chính nó và mạc treo của nó.
+C. Mức độ căng giãn của chính nó.
+D. Tất cả các yếu tố trên.
+Đáp án: D
+Giải thích: Đại tràng sigma là đoạn ruột già có hình dạng và vị trí thay đổi nhiều nhất. Sự thay đổi này phụ thuộc vào nhiều yếu tố, bao gồm: chiều dài của quai ruột và mạc treo, mức độ chứa phân và hơi bên trong (căng hay xẹp), và tình trạng của các tạng lân cận trong chậu hông như bàng quang, tử cung và trực tràng (khi các tạng này căng to, chúng có xu hướng đẩy đại tràng sigma lên cao vào ổ bụng).
+Câu 75. Rễ mạc treo đại tràng ngang bám vào mặt trước của tạng nào?
+A. Thận.
+B. Gan.
+C. Tụy.
+D. Lách.
+Đáp án: C
+Giải thích: Phần đại tràng ngang có mạc treo thực sự bắt đầu từ sau khi nó đi qua tá tràng và đầu tụy. Rễ của mạc treo đại tràng ngang bám vào thành bụng sau, chạy ngang qua mặt trước của đầu tụy và dọc theo bờ trước của thân tụy.
+Câu 76. Dây chằng vị-đại tràng là một phần của cấu trúc nào và nối giữa đâu?
+A. Là một phần của mạc nối bé, nối gan với dạ dày.
+B. Là một phần của mạc nối lớn, nối bờ cong lớn dạ dày với đại tràng ngang.
+C. Là một phần của mạc treo ruột non, nối hỗng tràng với thành bụng sau.
+D. Là một phần của mạc treo đại tràng sigma, nối đại tràng sigma với thành chậu hông.
+Đáp án: B
+Giải thích: Mạc nối lớn là một nếp phúc mạc lớn treo từ bờ cong lớn của dạ dày xuống. Phần của mạc nối lớn đi từ bờ cong lớn dạ dày tới bám vào đại tràng ngang được gọi là dây chằng vị-đại tràng. Đây là một đường vào khoang hậu cung mạc nối trong phẫu thuật.
+Câu 77. Mặt sau của đại tràng lên được ngăn cách với các cơ thành bụng sau bởi cấu trúc nào?
+A. Mạc ngang.
+B. Mạc chậu và mô liên kết lỏng lẻo.
+C. Mạc thận (mạc Gerota).
+D. Phúc mạc thành.
+Đáp án: B
+Giải thích: Đại tràng lên là tạng sau phúc mạc. Mặt sau của nó không có phúc mạc che phủ mà được một lớp mô liên kết lỏng lẻo ngăn cách với các cấu trúc thành bụng sau, bao gồm mạc chậu và mạc phủ các cơ như cơ vuông thắt lưng, cơ ngang bụng.
+Câu 78. Case lâm sàng: Một bệnh nhân bị ung thư đại tràng xuống xâm lấn ra mặt sau. Khối u có khả năng xâm lấn trực tiếp vào cấu trúc nào sau đây nhất?
+A. Dạ dày.
+B. Lách.
+C. Thận trái và các cơ thành bụng sau.
+D. Đại tràng sigma.
+Đáp án: C
+Giải thích: Đại tràng xuống là một tạng nằm sau phúc mạc. Mặt sau của nó liên quan trực tiếp với các cấu trúc sau phúc mạc, bao gồm mặt trước ngoài của thận trái, cơ vuông thắt lưng, cơ chậu và cơ thắt lưng lớn. Do đó, một khối u ở mặt sau đại tràng xuống có thể xâm lấn trực tiếp vào các cấu trúc này.
+Câu 79. Đỉnh của rễ mạc treo đại tràng sigma hình chữ V ngược thường nằm gần cấu trúc mạch máu nào?
+A. Chỗ chia của động mạch chủ bụng.
+B. Nguyên ủy của động mạch mạc treo tràng dưới.
+C. Chỗ chia của động mạch chậu chung trái.
+D. Động mạch thận trái.
+Đáp án: C
+Giải thích: Rễ của mạc treo đại tràng sigma có hình chữ V ngược. Đỉnh của chữ V, là điểm cố định cao nhất của mạc treo, thường nằm ở vị trí gần chỗ chia của động mạch chậu chung trái thành động mạch chậu trong và chậu ngoài.
+Câu 80. Niệu quản trái và các mạch tuyến sinh dục trái có mối liên quan như thế nào với mạc treo đại tràng sigma?
+A. Nằm trong mạc treo đại tràng sigma.
+B. Nằm trong một mặt phẳng mạc riêng biệt phía sau mạc treo đại tràng sigma.
+C. Bắt chéo phía trước mạc treo đại tràng sigma.
+D. Không có liên quan gì.
+Đáp án: B
+Giải thích: Các cấu trúc sau phúc mạc quan trọng như niệu quản trái và các mạch tuyến sinh dục trái không nằm trong mạc treo đại tràng sigma. Chúng nằm trong khoang sau phúc mạc, trong một mặt phẳng mạc riêng biệt (là phần mở rộng của mạc thận) ngay phía sau lớp mạc phủ của mạc treo đại tràng sigma. Việc nhận biết mặt phẳng vô mạch giữa hai lớp mạc này là cực kỳ quan trọng trong phẫu thuật cắt đại tràng sigma để tránh làm tổn thương niệu quản.
+Câu 81. Đại tràng xuống có đường kính nhỏ hơn đại tràng lên. Điều này có ý nghĩa lâm sàng gì?
+A. Ít bị viêm túi thừa hơn.
+B. Một khối u có cùng kích thước sẽ dễ gây tắc ruột ở đại tràng xuống hơn.
+C. Hấp thu nước hiệu quả hơn.
+D. Nhu động ruột nhanh hơn.
+Đáp án: B
+Giải thích: Vì lòng của đại tràng xuống và đại tràng sigma hẹp hơn so với đại tràng phải (manh tràng, đại tràng lên), và phân ở đây cũng đặc hơn, nên một khối u ung thư có cùng kích thước sẽ có khả năng gây ra các triệu chứng tắc nghẽn (táo bón, chướng bụng, thay đổi khuôn phân) ở đại tràng trái sớm hơn và thường xuyên hơn so với ở đại tràng phải.
+Câu 82. Góc đại tràng phải (góc gan) liên quan với đáy của tạng nào ở phía trước?
+A. Dạ dày.
+B. Tụy.
+C. Túi mật.
+D. Lách.
+Đáp án: C
+Giải thích: Góc đại tràng phải nằm ngay dưới gan. Ở phía trước, nó có liên quan gần với đáy của túi mật. Trong một số trường hợp, viêm túi mật có thể gây kích thích hoặc dính vào góc đại tràng phải.
+Câu 83. Phần nào của đại tràng ngang không có mạc treo thực sự và được gắn vào các cấu trúc sau phúc mạc?
+A. Phần giữa.
+B. Phần gần góc lách.
+C. Phần mới kế tiếp góc đại tràng phải (đoạn đầu).
+D. Toàn bộ đại tràng ngang đều có mạc treo.
+Đáp án: C
+Giải thích: Mặc dù đại tràng ngang được xem là đoạn di động, nhưng đoạn đầu tiên của nó, ngay sau góc đại tràng phải, thường không có phúc mạc che phủ mặt sau. Đoạn này được gắn bởi mô liên kết lỏng lẻo vào mặt trước của phần xuống của tá tràng và đầu tụy. Phần còn lại từ đây đến góc lách mới thực sự có mạc treo.
+Câu 84. Thần kinh nào sau đây có thể bị bắt chéo bởi mặt sau của đại tràng xuống?
+A. Thần kinh hoành trái.
+B. Thần kinh sinh dục đùi trái.
+C. Thần kinh X trái.
+D. Thần kinh hạ sườn phải.
+Đáp án: B
+Giải thích: Mặt sau của đại tràng xuống bắt chéo qua một loạt các mạch máu và thần kinh của thành bụng sau bên trái. Các thần kinh này bao gồm: thần kinh dưới sườn, thần kinh chậu hạ vị, chậu bẹn, bì đùi ngoài, đùi, và sinh dục đùi.
+Câu 85. Case lâm sàng: Trong quá trình phẫu thuật cắt đại tràng sigma vì ung thư, phẫu thuật viên phải cẩn thận xác định và bảo tồn một cấu trúc ống nhỏ, bắt chéo phía sau các mạch máu trong mạc treo đại tràng sigma. Cấu trúc này rất có thể là gì?
+A. Ống dẫn tinh trái.
+B. Niệu quản trái.
+C. Tĩnh mạch mạc treo tràng dưới.
+D. Nhánh của thần kinh bịt.
+Đáp án: B
+Giải thích: Niệu quản trái là một cấu trúc cực kỳ quan trọng cần được xác định và bảo vệ trong phẫu thuật vùng chậu hông và đại tràng sigma. Nó đi xuống trong khoang sau phúc mạc, bắt chéo các mạch chậu và đi vào chậu hông, nằm ngay phía sau mạc treo đại tràng sigma. Tổn thương niệu quản là một biến chứng nghiêm trọng của phẫu thuật đại trực tràng.
+Câu 86. Tại sao góc đại tràng trái (góc lách) lại là một "điểm yếu" về mặt mạch máu?
+A. Vì nó nhận máu từ một động mạch tận duy nhất.
+B. Vì nó là nơi nối tiếp giữa vùng cấp máu của ĐM mạc treo tràng trên và ĐM mạc treo tràng dưới, và vòng nối này có thể không đầy đủ.
+C. Vì nó nằm quá xa tim.
+D. Vì tĩnh mạch dẫn lưu của nó hay bị huyết khối.
+Đáp án: B
+Giải thích: Góc lách nằm ở vùng ranh giới giữa hai hệ thống cấp máu chính: động mạch mạc treo tràng trên (cấp máu cho đại tràng phải và giữa) và động mạch mạc treo tràng dưới (cấp máu cho đại tràng trái). Sự nối tiếp giữa hai hệ thống này thông qua động mạch bờ tại điểm Griffiths gần góc lách có thể yếu hoặc không liên tục ở một số người. Do đó, vùng này rất nhạy cảm với tình trạng thiếu máu cục bộ khi có sự sụt giảm tưới máu toàn thân.
+Câu 87. Đại tràng sigma thường liên tiếp với trực tràng ở ngang mức đốt sống nào?
+A. L5.
+B. S1.
+C. S3.
+D. Đốt cụt 1.
+Đáp án: C
+Giải thích: Chỗ nối đại tràng sigma - trực tràng được xác định về mặt giải phẫu là ở ngang mức mặt trước của đốt sống cùng thứ ba (S3​).
+Câu 88. Nếu một người có đại tràng ngang rất dài và thõng xuống thấp, nó có thể chạm tới đâu?
+A. Vùng thượng vị.
+B. Hạ sườn trái.
+C. Chậu hông.
+D. Khoang sau phúc mạc.
+Đáp án: C
+Giải thích: Do có mạc treo dài, mức độ thõng xuống của đại tràng ngang rất thay đổi. Ở một số người, đặc biệt là người cao, gầy, quai đại tràng ngang có thể thõng xuống rất thấp, thậm chí chạm tới các tạng trong chậu hông.
+Câu 89. Phần đại tràng nào có thể sờ thấy qua thành bụng ở một người có thành bụng mềm?
+A. Góc đại tràng phải.
+B. Phần giữa đại tràng ngang.
+C. Phần thấp nhất của đại tràng xuống.
+D. Toàn bộ đại tràng lên.
+Đáp án: C
+Giải thích: Nếu thành bụng trước mềm và không chướng, phần thấp nhất của đại tràng xuống, khi nó đi vào hố chậu trái, đôi khi có thể được sờ thấy như một ống chắc qua thành bụng.
+Câu 90. Mối liên quan giải phẫu nào giải thích tại sao phẫu thuật ở góc đại tràng trái có thể gây biến chứng viêm tụy?
+A. Góc đại tràng trái dính vào đầu tụy.
+B. Ống tụy chính đổ vào góc đại tràng trái.
+C. Góc đại tràng trái nằm gần đuôi tụy.
+D. Động mạch cấp máu cho góc đại tràng trái xuất phát từ động mạch tụy.
+Đáp án: C
+Giải thích: Góc đại tràng trái nằm ở phía trước và liên quan gần với đuôi của tụy. Việc bóc tách và huy động góc đại tràng trái trong phẫu thuật có thể gây ra chấn thương hoặc kích thích cho đuôi tụy, dẫn đến biến chứng viêm tụy cấp sau mổ.
+Câu 91. Trong phẫu thuật cắt đại tràng phải, phẫu thuật viên cần xác định và bảo tồn cấu trúc nào nằm ngay sau phúc mạc thành và bị đại tràng lên bắt chéo phía trước?
+A. Lách.
+B. Động mạch chủ bụng.
+C. Niệu quản phải và các mạch sinh dục phải.
+D. Dạ dày.
+Đáp án: C
+Giải thích: Khi huy động đại tràng lên và manh tràng, phẫu thuật viên phải làm việc trong khoang sau phúc mạc. Các cấu trúc quan trọng nằm ngay sau đại tràng lên và cần được bảo vệ là niệu quản phải và các mạch máu sinh dục phải (động mạch và tĩnh mạch tinh hoàn ở nam, hoặc buồng trứng ở nữ).
+Câu 92. Sự khác biệt về độ cố định giữa đại tràng lên và đại tràng ngang có ý nghĩa gì đối với sự lan tràn của một khối u?
+A. U đại tràng lên dễ di căn đến gan hơn.
+B. U đại tràng ngang dễ gieo rắc trong ổ phúc mạc hơn.
+C. U đại tràng lên dễ xâm lấn ra da hơn.
+D. Không có sự khác biệt đáng kể.
+Đáp án: B
+Giải thích: Đại tràng ngang là tạng trong phúc mạc và di động, được bao bọc hoàn toàn bởi phúc mạc tạng. Một khối u ở đây khi phá vỡ lớp thanh mạc sẽ dễ dàng gieo rắc các tế bào ung thư vào khoang phúc mạc tự do. Ngược lại, đại tràng lên là tạng sau phúc mạc, mặt sau của nó không có phúc mạc che phủ, nên một khối u ở mặt sau có xu hướng xâm lấn trực tiếp vào các cấu trúc sau phúc mạc hơn là gieo rắc trong ổ bụng.
+Câu 93. Đại tràng xuống bắt đầu từ đâu và kết thúc ở đâu?
+A. Từ góc gan đến manh tràng.
+B. Từ góc lách đến eo trên chậu hông, nơi nó liên tiếp với đại tràng sigma.
+C. Từ đại tràng ngang đến trực tràng.
+D. Từ manh tràng đến đại tràng sigma.
+Đáp án: B
+Giải thích: Đại tràng xuống là đoạn tiếp theo của góc đại tràng trái (góc lách). Nó đi xuống dọc theo thành bụng sau bên trái và kết thúc ở vùng eo trên chậu hông, tại đây nó liên tiếp với đại tràng sigma di động.
+Câu 94. Ở nữ giới, đại tràng sigma khi đi ngang qua chậu hông thường nằm giữa các tạng nào?
+A. Trực tràng và tử cung.
+B. Tử cung và bàng quang.
+C. Bàng quang và xương mu.
+D. Trực tràng và buồng trứng.
+Đáp án: A
+Giải thích: Ở nữ giới, tử cung nằm giữa bàng quang (phía trước) và trực tràng (phía sau). Quai đại tràng sigma di động thường đi ngang qua chậu hông, nằm ở vị trí giữa trực tràng ở phía sau và tử cung ở phía trước.
+Câu 95. Tại sao đại tràng sigma lại là đoạn có hình dạng và vị trí biến đổi nhiều nhất?
+A. Vì nó nhận được sự chi phối thần kinh phức tạp nhất.
+B. Vì nó có mạc treo dài và nằm giữa hai đoạn ruột cố định.
+C. Vì nó không có các bướu đại tràng.
+D. Vì nó là đoạn ruột già dài nhất.
+Đáp án: B
+Giải thích: Đại tràng sigma là một quai ruột di động, được treo bởi một mạc treo thường khá dài. Nó nằm kẹp giữa đại tràng xuống (cố định) và trực tràng (cố định tương đối). Sự kết hợp giữa việc có mạc treo dài và bản thân quai ruột cũng có thể rất dài và dư thừa làm cho vị trí và hình dạng của nó cực kỳ thay đổi giữa các cá thể và ngay cả trên cùng một cá thể ở những thời điểm khác nhau.
+Câu 96. Case lâm sàng: Một bệnh nhân bị chấn thương bụng kín do tai nạn giao thông. Chụp CT bụng có cản quang cho thấy có sự thoát thuốc cản quang từ góc đại tràng trái và tụ dịch quanh lách. Tổn thương nào có khả năng xảy ra nhất?
+A. Vỡ gan.
+B. Vỡ lách kèm theo rách góc đại tràng trái.
+C. Thủng dạ dày.
+D. Vỡ thận trái.
+Đáp án: B
+Giải thích: Góc đại tràng trái (góc lách) có mối liên quan giải phẫu rất gần với lách. Một lực chấn thương mạnh vào vùng hạ sườn trái có thể gây vỡ lách. Do sự dính liền hoặc gần kề giữa hai cấu trúc, lực tác động cũng có thể làm rách góc đại tràng trái. Sự thoát thuốc cản quang từ đại tràng và dịch quanh lách (máu) trên CT là bằng chứng cho cả hai tổn thương này.
+Câu 97. Cấu trúc nào sau đây KHÔNG phải là liên quan trước của đại tràng lên?
+A. Các quai hồi tràng.
+B. Mạc nối lớn.
+C. Thành bụng trước.
+D. Thận phải.
+Đáp án: D
+Giải thích: Đại tràng lên có các liên quan phía trước bao gồm các quai ruột non (hồi tràng), mạc nối lớn (có thể che phủ phía trước) và thành bụng trước. Thận phải là liên quan sau của đại tràng lên, nằm trong khoang sau phúc mạc.
+Câu 98. Trong phẫu thuật cắt đại tràng sigma, việc xác định mặt phẳng giữa mạc treo đại tràng sigma và mạc sau phúc mạc (chứa niệu quản) dựa vào đặc điểm nào?
+A. Mặt phẳng này chứa nhiều mạch máu nhỏ.
+B. Mặt phẳng này không chứa nhiều mạch máu nhỏ như mô liên kết quanh niệu quản.
+C. Mặt phẳng này có màu vàng đặc trưng.
+D. Mặt phẳng này rất dày và chắc.
+Đáp án: B
+Giải thích: Có một mặt phẳng phẫu tích tự nhiên, tương đối vô mạch, nằm giữa mạc riêng của mạc treo đại tràng sigma và lớp mạc sau phúc mạc bao bọc niệu quản và các mạch sinh dục. Phẫu thuật viên có thể nhận ra mặt phẳng này vì nó không chứa nhiều các mạch máu nhỏ li ti, trái ngược với mô liên kết lỏng lẻo giàu mạch máu hơn bao quanh trực tiếp niệu quản. Đi đúng vào mặt phẳng này giúp bóc tách an toàn và tránh tổn thương niệu quản.
+Câu 99. "Rãnh cạnh đại tràng" là gì?
+A. Các nếp gấp bên trong lòng đại tràng.
+B. Các khoang phúc mạc nằm ở hai bên của đại tràng lên và đại tràng xuống.
+C. Các dải cơ dọc trên bề mặt đại tràng.
+D. Các rãnh chứa mạch máu trên mạc treo.
+Đáp án: B
+Giải thích: Các rãnh cạnh đại tràng là các khoang tiềm tàng trong ổ phúc mạc, nằm dọc theo phía ngoài (bên) của đại tràng lên và đại tràng xuống. Chúng là đường đi quan trọng cho sự lan truyền của dịch (máu, mủ, dịch cổ trướng) trong ổ bụng. Ví dụ, dịch từ vùng gan-lách có thể chảy xuống dọc theo các rãnh này để tụ lại ở chậu hông.
+Câu 100. So với đại tràng lên, đại tràng xuống thường được phúc mạc che phủ nhiều hơn ở phía sau. Điều này có nghĩa là gì?
+A. Đại tràng xuống hoàn toàn nằm trong phúc mạc.
+B. Đại tràng xuống có một mạc treo ngắn.
+C. Đại tràng xuống ít cố định hơn đại tràng lên.
+D. Phúc mạc thành sau lật lên che phủ hai bên và một phần mặt sau của đại tràng xuống nhiều hơn.
+Đáp án: B
+Giải thích: Mặc dù cả hai đều là tạng sau phúc mạc, nhưng mức độ cố định có thể khác nhau. Đại tràng xuống "thường được phúc mạc che phủ phía sau (có mạc treo) nhiều hơn so với đại tràng lên". Điều này ngụ ý rằng đôi khi đại tràng xuống có thể có một mạc treo ngắn, làm cho nó di động hơn một chút so với đại tràng lên, mặc dù nó vẫn được coi là một đoạn cố định.
+Phần 4: Trực tràng và Ống hậu môn 
+Câu 101. Trực tràng có mấy góc cong ở mặt phẳng đứng dọc (trước-sau)?
+A. Một, là góc cùng.
+B. Hai, là góc cùng và góc đáy chậu.
+C. Ba, tương ứng với ba nếp ngang.
+D. Không có góc cong nào.
+Đáp án: B
+Giải thích: Trực tràng có hai góc cong chính khi nhìn từ bên (trên mặt phẳng đứng dọc). Thứ nhất là góc cùng, cong lồi ra sau theo độ cong của xương cùng. Thứ hai là góc đáy chậu hay góc hậu môn-trực tràng, là góc gập ra sau sắc nét tại chỗ nối với ống hậu môn, được tạo ra bởi sự kéo của cơ mu-trực tràng.
+Câu 102. Cấu trúc nào sau đây KHÔNG có ở trực tràng?
+A. Bóng trực tràng.
+B. Các nếp ngang của trực tràng.
+C. Lớp cơ dọc hoàn chỉnh.
+D. Các bướu đại tràng và các mẫu phụ mạc nối.
+Đáp án: D
+Giải thích: Trực tràng khác biệt với đại tràng sigma ở chỗ nó không có các đặc điểm hình thể ngoài của đại tràng, bao gồm các dải sán riêng biệt (chúng tỏa ra thành một lớp cơ dọc liên tục), các bướu đại tràng, và các mẫu phụ mạc nối.
+Câu 103. Mạc treo trực tràng là gì và tại sao nó quan trọng trong phẫu thuật ung thư trực tràng?
+A. Là nếp phúc mạc treo trực tràng, không quan trọng.
+B. Là khối mô mỡ-mạch-bạch huyết bao quanh trực tràng, chứa các hạch di căn; cắt bỏ toàn bộ khối này (TME) làm giảm tái phát.
+C. Là dây chằng nối trực tràng với bàng quang.
+D. Là lớp cơ của thành trực tràng.
+Đáp án: B
+Giải thích: Mạc treo trực tràng là một khoang giải phẫu chứa mô mỡ, các mạch máu trực tràng trên, và quan trọng nhất là các hạch bạch huyết vùng của trực tràng. Trong ung thư trực tràng, các tế bào ung thư thường di căn đến các hạch này. Phẫu thuật cắt toàn bộ mạc treo trực tràng, tức là cắt bỏ khối trực tràng và toàn bộ mạc treo của nó trong một bao mạc nguyên vẹn, đã được chứng minh là làm giảm đáng kể tỷ lệ tái phát tại chỗ và cải thiện tỷ lệ sống còn cho bệnh nhân.
+Câu 104. Đường lược trong ống hậu môn là mốc giải phẫu quan trọng phân chia hai vùng có nguồn gốc phôi thai khác nhau. Đó là những nguồn gốc nào?
+A. Ngoại bì và trung bì.
+B. Nội bì (ruột sau) và ngoại bì (lỗ hậu môn nguyên thủy).
+C. Trung bì và nội bì.
+D. Cả hai đều từ nội bì.
+Đáp án: B
+Giải thích: Đường lược là ranh giới cực kỳ quan trọng, đánh dấu nơi gặp nhau của hai cấu trúc có nguồn gốc phôi thai khác nhau. Phần ống hậu môn phía trên đường lược có nguồn gốc từ nội bì của ruột sau. Phần ống hậu môn phía dưới đường lược có nguồn gốc từ ngoại bì của lỗ hậu môn nguyên thủy.
+Câu 105. Case lâm sàng: Một bệnh nhân nam 50 tuổi đến khám vì đi cầu ra máu tươi, không đau. Nội soi thấy một búi giãn tĩnh mạch ở vị trí 7 giờ, phía trên đường lược. Chẩn đoán là gì và tại sao bệnh nhân không đau?
+A. Trĩ ngoại; vì nó nhỏ.
+B. Trĩ nội; vì niêm mạc trên đường lược được chi phối bởi thần kinh tự chủ, không cảm nhận đau.
+C. Nứt kẽ hậu môn; bệnh nhân mô tả sai.
+D. Ung thư trực tràng; khối u không gây đau.
+Đáp án: B
+Giải thích: Búi giãn tĩnh mạch nằm trên đường lược được định nghĩa là trĩ nội. Vùng niêm mạc này có nguồn gốc nội bì và được chi phối bởi hệ thần kinh tự chủ (tạng), vốn không có các thụ thể cảm nhận đau như da. Do đó, trĩ nội điển hình không gây đau, trừ khi xảy ra các biến chứng như bị tắc mạch, hoại tử hoặc sa nghẹt.
+Câu 106. Máu tĩnh mạch từ vùng dưới đường lược (ví dụ từ trĩ ngoại) được dẫn lưu về hệ thống nào?
+A. Hệ tĩnh mạch cửa (qua tĩnh mạch mạc treo tràng dưới).
+B. Hệ tĩnh mạch chủ (qua tĩnh mạch chậu trong).
+C. Trực tiếp vào tĩnh mạch chủ dưới.
+D. Hệ tĩnh mạch lách.
+Đáp án: B
+Giải thích: Vùng dưới đường lược có dẫn lưu tĩnh mạch thuộc hệ thống tuần hoàn hệ thống (toàn thân). Máu từ đám rối tĩnh mạch trực tràng ngoài (trĩ ngoại) được dẫn lưu bởi các tĩnh mạch trực tràng dưới, đổ vào tĩnh mạch thẹn trong, rồi vào tĩnh mạch chậu trong và cuối cùng về tĩnh mạch chủ dưới. Đây là sự khác biệt cơ bản với vùng trên đường lược, nơi máu đổ về hệ cửa.
+Câu 107. Cơ nào chịu trách nhiệm chính trong việc duy trì góc hậu môn-trực tràng và đóng vai trò quan trọng trong cơ chế giữ phân?
+A. Cơ thắt hậu môn trong.
+B. Cơ thắt hậu môn ngoài.
+C. Cơ mu-trực tràng.
+D. Cơ nâng hậu môn.
+Đáp án: C
+Giải thích: Cơ mu-trực tràng, một phần của phức hợp cơ nâng hậu môn, tạo thành một quai hình chữ U vòng ra sau và kéo chỗ nối hậu môn-trực tràng ra trước. Sự co trương lực của cơ này tạo ra góc hậu môn-trực tràng sắc nét (khoảng 80−90∘), có tác dụng như một van chặn cơ học, đóng một vai trò thiết yếu trong việc duy trì sự tự chủ (kiểm soát) đại tiện.
+Câu 108. Cơ thắt hậu môn trong có đặc điểm gì?
+A. Là cơ vân, hoạt động theo ý muốn.
+B. Là phần dày lên của lớp cơ vòng trực tràng, hoạt động không theo ý muốn.
+C. Được chi phối bởi thần kinh thẹn.
+D. Chịu trách nhiệm cho 20% trương lực nghỉ của ống hậu môn.
+Đáp án: B
+Giải thích: Cơ thắt hậu môn trong là sự tiếp nối và dày lên của lớp cơ vòng ở thành trực tràng. Nó là một cơ trơn, do đó hoạt động của nó là tự động, không theo ý muốn. Nó được chi phối bởi hệ thần kinh tự chủ (giao cảm gây co, đối giao cảm gây giãn) và chịu trách nhiệm cho khoảng 80-85% trương lực của ống hậu môn ở trạng thái nghỉ.
+Câu 109. Dẫn lưu bạch huyết từ một khối ung thư biểu mô vảy ở ống hậu môn, dưới đường lược, sẽ đi về nhóm hạch nào đầu tiên?
+A. Các hạch mạc treo tràng dưới.
+B. Các hạch cạnh động mạch chủ.
+C. Các hạch bẹn nông.
+D. Các hạch trong mạc treo trực tràng.
+Đáp án: C
+Giải thích: Do có nguồn gốc ngoại bì, vùng da và niêm mạc dưới đường lược có đường dẫn lưu bạch huyết tương tự như da vùng đáy chậu. Bạch huyết từ đây sẽ được dẫn lưu về các hạch bẹn nông. Điều này có ý nghĩa quan trọng trong việc đánh giá giai đoạn và lập kế hoạch điều trị cho ung thư ống hậu môn.
+Câu 110. "Các cột hậu môn" là gì?
+A. Các nếp gấp ngang trong trực tràng.
+B. 6-10 nếp gấp niêm mạc dọc ở nửa trên ống hậu môn.
+C. Các bó cơ của cơ thắt ngoài.
+D. Các đám rối tĩnh mạch của trĩ ngoại.
+Đáp án: B
+Giải thích: Nửa trên của ống hậu môn (phía trên đường lược) có niêm mạc không phẳng mà được tạo thành các nếp gấp dọc, gọi là các cột hậu môn. Bên dưới các cột này chứa các nhánh tận cùng của động mạch và tĩnh mạch trực tràng trên, tạo nên các "đệm hậu môn".
+Câu 111. Túi cùng trực tràng-bàng quang (ở nam) hoặc trực tràng-tử cung (ở nữ) là điểm thấp nhất của ổ phúc mạc. Nó được tạo ra bởi sự lật lên của phúc mạc từ mặt trước của tạng nào?
+A. Bàng quang.
+B. Tử cung.
+C. Trực tràng.
+D. Đại tràng sigma.
+Đáp án: C
+Giải thích: Phúc mạc sau khi che phủ mặt trước của 2/3 trên trực tràng sẽ lật ngược ra phía trước để che phủ các tạng chậu hông khác. Sự lật lên này tạo ra một ngách sâu gọi là túi cùng. Ở nam là túi cùng trực tràng-bàng quang, ở nữ là túi cùng trực tràng-tử cung (túi cùng Douglas).
+Câu 112. Case lâm sàng: Một phụ nữ 60 tuổi, sau sinh nhiều lần, than phiền về cảm giác có khối sa ra từ âm đạo khi đi đại tiện gắng sức. Khám thấy thành sau âm đạo phồng ra. Đây là biểu hiện của tình trạng gì?
+A. Sa tử cung.
+B. Sa trực tràng 
+C. Thoát vị thành trước trực tràng vào âm đạo 
+D. Trĩ nội sa.
+Đáp án: C
+Giải thích: Tình trạng này được gọi là thoát vị thành trước trực tràng vào âm đạo. Nó xảy ra khi vách ngăn giữa trực tràng và âm đạo (vách trực tràng-âm đạo) bị yếu đi, thường do tổn thương khi sinh đẻ hoặc do tuổi tác. Khi áp lực trong trực tràng tăng lên (khi rặn), thành trước của trực tràng sẽ bị đẩy phồng vào trong lòng âm đạo.
+Câu 113. Mạc Denonvillier (vách trực tràng-tiền liệt) là một cấu trúc quan trọng trong phẫu thuật ung thư trực tràng ở nam giới. Nó nằm ở đâu?
+A. Phía sau trực tràng, ngăn cách trực tràng với xương cùng.
+B. Phía trước trực tràng, ngăn cách trực tràng với túi tinh và tuyến tiền liệt.
+C. Ở hai bên trực tràng, chứa động mạch trực tràng giữa.
+D. Phía trên trực tràng, ngăn cách trực tràng với đại tràng sigma.
+Đáp án: B
+Giải thích: Mạc Denonvillier là một lớp mạc sợi nằm giữa mặt trước của trực tràng và các cấu trúc phía trước nó là túi tinh và tuyến tiền liệt. Trong phẫu thuật cắt trực tràng ở nam giới, việc bóc tách theo mặt phẳng phía trước này (ngay trên mạc Denonvillier) là rất quan trọng để lấy trọn khối u và tránh làm tổn thương các cấu trúc niệu-dục.
+Câu 114. "Đệm hậu môn" là các cấu trúc dưới niêm mạc ở nửa trên ống hậu môn, có vai trò trong việc bịt kín ống hậu môn. Chúng thường nằm ở các vị trí nào theo chiều kim đồng hồ?
+A. 12h, 4h, 8h.
+B. 6h, 9h, 12h.
+C. 3h (trái), 7h (sau phải), 11h (trước phải).
+D. 2h, 6h, 10h.
+Đáp án: C
+Giải thích: Các đệm hậu môn là những vùng mô dưới niêm mạc giàu mạch máu, tương ứng với vị trí của các nhánh chính của động mạch trực tràng trên. Chúng thường phân bố ở 3 vị trí chính: trước phải (11 giờ), sau phải (7 giờ), và bên trái (3 giờ). Đây cũng chính là các vị trí thường xuất hiện của các búi trĩ nội.
+Câu 115. Rò hậu môn thường là hậu quả của bệnh lý nào?
+A. Táo bón mạn tính.
+B. Bệnh trĩ.
+C. Nhiễm trùng và áp xe các tuyến hậu môn ở xoang hậu môn.
+D. Nứt kẽ hậu môn.
+Đáp án: C
+Giải thích: Trong các xoang hậu môn (nằm giữa các cột hậu môn, ngay trên đường lược) có các tuyến hậu môn đổ vào. Khi các tuyến này bị tắc và nhiễm trùng, chúng có thể tạo thành áp xe. Áp xe này sau đó có thể vỡ ra da vùng quanh hậu môn, tạo thành một đường hầm bệnh lý nối giữa lòng ống hậu môn và da bên ngoài, gọi là đường rò hậu môn.
+Câu 116. "Lược hậu môn" là tên gọi của vùng nào?
+A. Vùng niêm mạc có các cột hậu môn.
+B. Vùng da có lông quanh rìa hậu môn.
+C. Vùng chuyển tiếp dài khoảng 15 mm, nằm giữa đường lược và rãnh gian cơ thắt.
+D. Toàn bộ ống hậu môn.
+Đáp án: C
+Giải thích: Lược hậu môn là vùng niêm mạc nhẵn, được lót bởi biểu mô vảy tầng không sừng hóa, nằm ngay bên dưới đường lược. Vùng này rất giàu các đầu tận thần kinh cảm giác thân thể nên rất nhạy cảm với đau. Nó kéo dài từ đường lược ở trên đến rãnh gian cơ thắt ở dưới.
+Câu 117. Thần kinh nào chi phối cảm giác đau cho vùng da và niêm mạc dưới đường lược?
+A. Thần kinh hạ vị dưới.
+B. Các thần kinh tạng chậu.
+C. Nhánh trực tràng dưới của thần kinh thẹn.
+D. Các nhánh của thần kinh bịt.
+Đáp án: C
+Giải thích: Vùng dưới đường lược, bao gồm lược hậu môn và da quanh hậu môn, được chi phối cảm giác thân thể (đau, nhiệt, tiếp xúc) bởi nhánh trực tràng dưới của thần kinh thẹn. Đây là lý do tại sao các tổn thương ở vùng này (như trĩ ngoại, nứt kẽ hậu môn) lại gây đau dữ dội.
+Câu 118. Rãnh gian cơ thắt là một mốc giải phẫu có thể sờ thấy được, nằm giữa hai cấu trúc nào?
+A. Bờ dưới cơ thắt trong và phần dưới da của cơ thắt ngoài.
+B. Cơ mu-trực tràng và cơ thắt ngoài.
+C. Hai bó của cơ thắt ngoài.
+D. Bờ trên cơ thắt trong và cơ vòng trực tràng.
+Đáp án: A
+Giải thích: Rãnh gian cơ thắt là một rãnh nông trên bề mặt, tương ứng với khoảng trống giữa bờ dưới của cơ thắt hậu môn trong và phần dưới da của cơ thắt hậu môn ngoài. Đây là một mốc quan trọng trong phẫu thuật các bệnh lý vùng hậu môn.
+Câu 119. Case lâm sàng: Một bệnh nhân bị ung thư biểu mô tuyến của trực tràng, khối u nằm cách rìa hậu môn 10 cm. Đường di căn hạch bạch huyết chính của khối u này là gì?
+A. Đi xuống các hạch bẹn.
+B. Đi ngang sang các hạch chậu ngoài.
+C. Đi lên trên theo các hạch trong mạc treo trực tràng rồi đến các hạch mạc treo tràng dưới.
+D. Không di căn hạch.
+Đáp án: C
+Giải thích: Một khối u ở trực tràng cách rìa hậu môn 10 cm nằm hoàn toàn ở phía trên đường lược. Do đó, đường di căn bạch huyết chính của nó sẽ đi theo hướng lên trên, dọc theo các mạch máu trực tràng trên. Bạch huyết sẽ đi qua các hạch trong mạc treo trực tràng (hạch cạnh trực tràng), sau đó đến các hạch dọc theo động mạch trực tràng trên và cuối cùng là các hạch quanh nguyên ủy của động mạch mạc treo tràng dưới.
+Câu 120. Sự khác biệt cơ bản giữa trĩ nội và trĩ ngoại là gì?
+A. Trĩ nội lớn hơn trĩ ngoại.
+B. Trĩ nội chảy máu, trĩ ngoại thì không.
+C. Vị trí của chúng so với đường lược.
+D. Trĩ nội do động mạch phình ra, trĩ ngoại do tĩnh mạch phình ra.
+Đáp án: C
+Giải thích: Sự phân biệt cơ bản và quan trọng nhất giữa trĩ nội và trĩ ngoại dựa trên vị trí giải phẫu của chúng so với đường lược. Trĩ nội là sự giãn của đám rối tĩnh mạch trực tràng trong, nằm ở trên đường lược. Trĩ ngoại là sự giãn của đám rối tĩnh mạch trực tràng ngoài, nằm ở dưới đường lược. Sự phân chia này quyết định loại biểu mô che phủ, sự chi phối thần kinh (và cảm giác đau), cũng như đường dẫn lưu tĩnh mạch và bạch huyết.
+Câu 121. Cơ trực tràng-niệu đạo ở nam giới đi từ đâu đến đâu?
+A. Từ thành sau trực tràng đến xương cụt.
+B. Từ thành trước trực tràng đến thể đáy chậu.
+C. Từ bàng quang đến niệu đạo.
+D. Từ cơ thắt ngoài đến da quanh hậu môn.
+Đáp án: B
+Giải thích: Tại bóng trực tràng, một vài dải sợi cơ dọc ở thành trước đi về phía trước để bám vào thể đáy chậu. Các sợi cơ này tạo thành cơ trực tràng-niệu đạo, có vai trò trong việc cố định và nâng đỡ sàn chậu hông.
+Câu 122. Phúc mạc che phủ những phần nào của trực tràng?
+A. Toàn bộ trực tràng.
+B. Chỉ mặt trước của 1/3 dưới.
+C. Hai phần ba trên mặt trước và một phần ba trên của mặt bên.
+D. Chỉ mặt sau.
+Đáp án: C
+Giải thích: Trực tràng không được phúc mạc bao bọc hoàn toàn. Phúc mạc chỉ che phủ mặt trước và hai bên của 1/3 trên, và chỉ mặt trước của 1/3 giữa. 1/3 dưới của trực tràng nằm hoàn toàn ngoài phúc mạc.
+Câu 123. Nếp ngang trực tràng (nếp Houston) ở vị trí giữa thường nhô vào từ thành nào?
+A. Thành sau.
+B. Thành trước phải.
+C. Thành trái.
+D. Thành trên.
+Đáp án: B
+Giải thích: Trực tràng thường có ba nếp ngang không hằng định. Nếp giữa, thường là nếp lớn và rõ nhất, nằm ngay trên bóng trực tràng và nhô vào lòng trực tràng từ phía thành trước và bên phải.
+Câu 124. Lớp cơ dọc liên hợp ở ống hậu môn là sự hòa trộn của các sợi cơ từ đâu?
+A. Chỉ cơ trơn từ lớp cơ dọc trực tràng.
+B. Chỉ cơ vân từ cơ nâng hậu môn.
+C. Cơ trơn từ lớp cơ dọc trực tràng và cơ vân từ cơ mu hậu môn.
+D. Cơ thắt trong và cơ thắt ngoài.
+Đáp án: C
+Giải thích: Lớp cơ dọc nằm ở khoang gian cơ thắt (giữa cơ thắt trong và ngoài) là một cấu trúc phức hợp. Nó được tạo thành từ sự hòa trộn của các sợi cơ trơn đi xuống từ lớp cơ dọc của trực tràng và các sợi cơ vân từ phần trong cùng của cơ mu-trực tràng (còn gọi là cơ mu hậu môn).
+Câu 125. Case lâm sàng: Thăm trực tràng bằng ngón tay ở một bệnh nhân nam, có thể sờ thấy cấu trúc nào ở phía trước thành trực tràng?
+A. Xương cùng.
+B. Tử cung.
+C. Tuyến tiền liệt.
+D. Buồng trứng.
+Đáp án: C
+Giải thích: Ở nam giới, thành trước của phần thấp trực tràng liên quan mật thiết với các cấu trúc của hệ niệu-dục. Khi thăm trực tràng bằng ngón tay, có thể sờ thấy mặt sau của tuyến tiền liệt qua thành trước trực tràng. Đây là một thăm khám lâm sàng quan trọng để đánh giá kích thước, mật độ của tuyến tiền liệt và tầm soát ung thư.
+Câu 126. Tại sao can thiệp vào trĩ nội (ví dụ thắt vòng cao su) thường ít gây đau hơn so với can thiệp vào trĩ ngoại?
+A. Vì trĩ nội nhỏ hơn.
+B. Vì niêm mạc trên đường lược, nơi có trĩ nội, không có thụ thể đau.
+C. Vì trĩ nội có ít mạch máu hơn.
+D. Vì thuốc tê có tác dụng tốt hơn ở vùng trĩ nội.
+Đáp án: B
+Giải thích: Vùng niêm mạc trên đường lược, nơi xuất phát của trĩ nội, được chi phối bởi thần kinh tự chủ và không có các sợi thần kinh cảm giác đau thân thể. Do đó, các thủ thuật như thắt vòng cao su, chích xơ... vào búi trĩ nội thường chỉ gây cảm giác tức nặng hoặc khó chịu chứ không gây đau nhói. Ngược lại, vùng da dưới đường lược, nơi có trĩ ngoại, rất giàu thụ thể đau nên mọi can thiệp đều rất đau đớn.
+Câu 127. Dây chằng hậu môn cụt nối giữa hai cấu trúc nào?
+A. Cơ thắt ngoài và xương cụt.
+B. Cơ thắt trong và xương cùng.
+C. Trực tràng và xương cụt.
+D. Da quanh hậu môn và xương cụt.
+Đáp án: A
+Giải thích: Dây chằng (hay thể) hậu môn cụt là một cấu trúc sợi chun nằm trên đường giữa, chạy từ mặt sau của phần giữa cơ thắt hậu môn ngoài đến mặt trước của xương cụt. Nó giúp cố định ống hậu môn vào khung xương chậu.
+Câu 128. Biểu mô lót bề mặt của lược hậu môn là loại gì?
+A. Biểu mô trụ đơn tiết nhầy.
+B. Biểu mô lát tầng sừng hóa.
+C. Biểu mô vảy tầng không sừng hóa.
+D. Biểu mô chuyển tiếp.
+Đáp án: C
+Giải thích: Vùng lược hậu môn, nằm giữa đường lược và rãnh gian cơ thắt, được lót bởi một loại biểu mô đặc biệt là biểu mô vảy (lát) tầng không sừng hóa. Nó khác với biểu mô trụ của trực tràng ở trên và biểu mô da sừng hóa ở dưới.
+Câu 129. Khoang sau trực tràng (khoang trước xương cùng) là một khoang tiềm tàng quan trọng trong phẫu thuật. Nó nằm giữa hai cấu trúc nào?
+A. Giữa trực tràng và bàng quang.
+B. Giữa mạc riêng của trực tràng (mạc mạc treo trực tràng) ở phía trước và mạc trước xương cùng ở phía sau.
+C. Bên trong mạc treo trực tràng.
+D. Giữa cơ thắt trong và cơ thắt ngoài.
+Đáp án: B
+Giải thích: Khoang sau trực tràng là một khoang mô liên kết lỏng lẻo, tương đối vô mạch, nằm giữa mạc mạc treo trực tràng (bao bọc trực tràng và mạc treo của nó) và mạc trước xương cùng (phủ mặt trước xương cùng). Đây chính là mặt phẳng phẫu tích lý tưởng để bóc tách, giải phóng trực tràng ra khỏi thành chậu sau trong phẫu thuật TME.
+Câu 130. Sự chi phối thần kinh đối giao cảm có tác dụng gì lên cơ thắt hậu môn trong?
+A. Gây co.
+B. Gây giãn.
+C. Không có tác dụng.
+D. Vừa co vừa giãn.
+Đáp án: B
+Giải thích: Cơ thắt hậu môn trong được chi phối bởi hệ thần kinh tự chủ. Các sợi giao cảm gây co thắt, trong khi các sợi đối giao cảm (từ các thần kinh tạng chậu) gây giãn cơ. Phản xạ giãn cơ thắt trong khi trực tràng bị căng phồng (phản xạ trực tràng-hậu môn ức chế) là một phần quan trọng của cơ chế đại tiện.
+Câu 131. "Anoderm" là thuật ngữ chỉ vùng nào của ống hậu môn?
+A. Toàn bộ niêm mạc trên đường lược.
+B. Vùng lược hậu môn và đoạn da của ống hậu môn.
+C. Chỉ vùng da có lông quanh hậu môn.
+D. Chỉ vùng niêm mạc chuyển tiếp.
+Đáp án: B
+Giải thích: "Anoderm" là thuật ngữ lâm sàng dùng để chỉ lớp lót nhạy cảm của phần dưới ống hậu môn, bao gồm cả lược hậu môn (lót bởi biểu mô vảy không sừng hóa) và phần da của ống hậu môn (lót bởi biểu mô lát tầng sừng hóa) nằm bên dưới rãnh gian cơ thắt.
+Câu 132. Case lâm sàng: Một bệnh nhân bị tăng áp lực tĩnh mạch cửa do xơ gan. Khi nội soi đại tràng, có thể thấy các búi giãn tĩnh mạch ở vùng hậu môn trực tràng. Các búi giãn tĩnh mạch này là biểu hiện của vòng nối nào?
+A. Vòng nối cửa-chủ.
+B. Vòng nối chủ-chủ.
+C. Vòng nối động-tĩnh mạch.
+D. Vòng nối bạch-tĩnh mạch.
+Đáp án: A
+Giải thích: Vùng hậu môn trực tràng là một trong những vị trí quan trọng có sự thông nối giữa hệ tĩnh mạch cửa và hệ tĩnh mạch chủ (tuần hoàn hệ thống). Tĩnh mạch trực tràng trên (thuộc hệ cửa) nối với các tĩnh mạch trực tràng giữa và dưới (thuộc hệ chủ). Khi áp lực trong hệ cửa tăng cao (như trong xơ gan), máu sẽ chảy ngược qua các vòng nối này, làm giãn các tĩnh mạch và tạo thành các búi giãn tĩnh mạch trực tràng, tương tự như giãn tĩnh mạch thực quản.
+Câu 133. Việc xác định rìa hậu môn trên lâm sàng có thể dựa vào đặc điểm nào?
+A. Sự thay đổi màu sắc da đột ngột.
+B. Sự hiện diện của các tuyến mồ hôi.
+C. Sự nhăn nheo đặc trưng của da do các sợi cơ dọc dính vào.
+D. Ranh giới của vùng có lông.
+Đáp án: C
+Giải thích: Việc xác định chính xác rìa hậu môn đôi khi khó khăn. Một căn cứ để nhận diện là sự thay đổi kết cấu da. Vùng da ngay bên ngoài rìa hậu môn có sự nhăn nheo đặc trưng do các sợi từ lớp cơ dọc của ống hậu môn xuyên qua cơ thắt ngoài để bám vào da.
+Câu 134. Hố ngồi - hậu môn là một khoang chứa đầy mỡ nằm ở hai bên ống hậu môn. Nó có ý nghĩa lâm sàng gì?
+A. Là nơi thường xảy ra ung thư.
+B. Là đường lan truyền tiềm tàng cho nhiễm trùng từ bên này sang bên kia.
+C. Chứa các mạch máu lớn cấp máu cho chi dưới.
+D. Không có ý nghĩa lâm sàng.
+Đáp án: B
+Giải thích: Hố ngồi - hậu môn là một khoang chứa mô mỡ lỏng lẻo. Một ổ áp xe bắt nguồn từ tuyến hậu môn có thể lan rộng vào khoang này. Do hai hố ngồi - hậu môn hai bên có thể thông với nhau ở phía sau ống hậu môn (qua khoang sau hậu môn sâu), nhiễm trùng có thể lan từ bên này sang bên kia, tạo thành áp xe hình móng ngựa.
+Câu 135. Thành phần nào của cơ thắt hậu môn ngoài được gắn vào thể đáy chậu ở phía trước?
+A. Phần dưới da.
+B. Phần nông.
+C. Phần sâu.
+D. Tất cả các phần.
+Đáp án: B
+Giải thích: Cơ thắt hậu môn ngoài được mô tả gồm 3 phần. Phần nông, hay phần giữa, có các sợi cơ được gắn vào thể đáy chậu ở phía trước và vào xương cụt qua dây chằng hậu môn cụt ở phía sau.
+Câu 136. Chiều dài của ống hậu môn ở người lớn là khoảng bao nhiêu?
+A. 1-2 cm.
+B. 4 cm.
+C. 8 cm.
+D. 10 cm.
+Đáp án: B
+Giải thích: Ống hậu môn giải phẫu, tính từ chỗ nối hậu môn-trực tràng đến rìa hậu môn, có chiều dài trung bình khoảng 4 cm ở người lớn. Nó thường ngắn hơn một chút ở nữ giới.
+Câu 137. Trong lúc nghỉ, ống hậu môn có hình dạng gì?
+A. Một ống tròn, luôn mở.
+B. Một khe hình bầu dục dẹt theo chiều trước sau.
+C. Một khe dẹt theo chiều ngang.
+D. Hoàn toàn đóng kín không có khe.
+Đáp án: B
+Giải thích: Do sự ép của các cơ và đệm hậu môn, ở trạng thái nghỉ, lòng ống hậu môn không phải là một hình tròn mà là một khe dẹt theo chiều trước-sau.
+Câu 138. Sa trực tràng kiểu lồng là tình trạng gì?
+A. Thành trước trực tràng lồi vào âm đạo.
+B. Toàn bộ trực tràng sa ra ngoài hậu môn.
+C. Phần trên của trực tràng lồng vào phần dưới của nó hoặc vào ống hậu môn.
+D. Đại tràng sigma lồng vào trực tràng.
+Đáp án: C
+Giải thích: Sa trực tràng có thể xảy ra theo nhiều cơ chế. Một trong số đó là sa kiểu lồng, trong đó thành trực tràng ở phía trên bị yếu và sa xuống, lồng vào đoạn trực tràng phía dưới hoặc lồng vào trong ống hậu môn, tương tự như cơ chế của lồng ruột ở trẻ em. Tình trạng này có thể kín (không thò ra ngoài) hoặc hở (phần bị lồng thò ra ngoài hậu môn).
+Câu 139. Bảng dưới đây so sánh các đặc điểm trên và dưới đường lược. Hãy xác định dòng có thông tin SAI.
+A. Biểu mô: Trên đường lược (Biểu mô trụ), Dưới đường lược (Biểu mô vảy)
+B. Cảm giác đau: Trên đường lược (Ít nhạy cảm), Dưới đường lược (Rất nhạy cảm)
+C. Dẫn lưu TM: Trên đường lược (Hệ cửa), Dưới đường lược (Hệ chủ)
+D. Chi phối cơ: Trên đường lược (Cơ vân ý muốn), Dưới đường lược (Cơ trơn tự chủ)
+Đáp án: D
+Giải thích: Dòng D chứa thông tin sai. Vùng trên đường lược liên quan đến cơ thắt hậu môn TRONG, là cơ TRƠN và hoạt động không theo ý muốn (tự chủ). Vùng dưới đường lược liên quan đến cơ thắt hậu môn NGOÀI, là cơ VÂN và hoạt động theo ý muốn. Bảng đã đảo ngược sự chi phối cơ này.
+Câu 140. Khoang trên cơ nâng nằm ở đâu?
+A. Giữa cơ nâng hậu môn và thành chậu hông.
+B. Giữa da và cơ nâng hậu môn.
+C. Phía trên cơ nâng hậu môn, thông với ổ bụng-chậu hông.
+D. Bên trong ống hậu môn.
+Đáp án: C
+Giải thích: Khoang trên cơ nâng là khoang nằm ngay phía trên cơ nâng hậu môn. Một ổ áp phòng ở khoang này có thể là do sự lan xuống của một bệnh lý trong ổ bụng (như viêm túi thừa, bệnh Crohn) hoặc lan lên từ một áp xe ở khoang gian cơ thắt. Nó được ngăn cách với hố ngồi-hậu môn ở dưới bởi cơ nâng hậu môn.
+Phần 5: Cấp máu Động mạch 
+Câu 141. Ruột già được cấp máu bởi hai nguồn động mạch chính nào?
+A. Động mạch thân tạng và động mạch mạc treo tràng trên.
+B. Động mạch mạc treo tràng trên và động mạch mạc treo tràng dưới.
+C. Động mạch mạc treo tràng dưới và động mạch chậu trong.
+D. Động mạch chủ bụng và động mạch thận.
+Đáp án: B
+Giải thích: Phần lớn ruột già, từ manh tràng đến 2/3 phải đại tràng ngang, được cấp máu bởi động mạch mạc treo tràng trên (SMA). Phần còn lại, từ 1/3 trái đại tràng ngang đến phần trên trực tràng, được cấp máu bởi động mạch mạc treo tràng dưới (IMA). Phần dưới trực tràng và ống hậu môn nhận thêm máu từ động mạch chậu trong.
+Câu 142. Động mạch mạc treo tràng trên (SMA) KHÔNG cấp máu cho đoạn ruột nào sau đây?
+A. Manh tràng và ruột thừa.
+B. Đại tràng lên.
+C. 2/3 phải đại tràng ngang.
+D. Đại tràng xuống.
+Đáp án: D
+Giải thích: Lãnh thổ cấp máu của SMA bao gồm toàn bộ ruột non (trừ phần đầu tá tràng), manh tràng, ruột thừa, đại tràng lên và 2/3 phải (hoặc đến gần góc lách) của đại tràng ngang. Đại tràng xuống được cấp máu bởi động mạch mạc treo tràng dưới.
+Câu 143. Động mạch hồi đại tràng là nhánh của động mạch nào?
+A. Động mạch mạc treo tràng trên.
+B. Động mạch mạc treo tràng dưới.
+C. Động mạch đại tràng giữa.
+D. Động mạch chậu chung phải.
+Đáp án: A
+Giải thích: Động mạch hồi đại tràng là nhánh cuối cùng bên phải của động mạch mạc treo tràng trên. Nó đi xuống hố chậu phải để cấp máu cho hồi tràng cuối, manh tràng, ruột thừa và phần dưới của đại tràng lên.
+Câu 144. Động mạch đại tràng phải có nguyên ủy biến đổi nhất. Dạng nguyên ủy nào KHÔNG được mô tả?
+A. Tách ra độc lập từ động mạch mạc treo tràng trên.
+B. Tách ra từ động mạch hồi đại tràng.
+C. Tách ra từ động mạch đại tràng giữa (với tên gọi động mạch góc phải).
+D. Tách ra từ động mạch mạc treo tràng dưới.
+Đáp án: D
+Giải thích: Động mạch đại tràng phải có 3 dạng nguyên ủy chính: (1) tách trực tiếp từ SMA, (2) tách từ động mạch hồi đại tràng, hoặc (3) tách từ động mạch đại tràng giữa. Nó không bao giờ tách ra từ động mạch mạc treo tràng dưới vì hai hệ thống này cấp máu cho hai phần khác nhau của đại tràng.
+Câu 145. Động mạch đại tràng giữa thường chia thành hai nhánh phải và trái để nối với các động mạch nào?
+A. Nhánh phải nối với ĐM gan, nhánh trái nối với ĐM lách.
+B. Nhánh phải nối với ĐM đại tràng phải, nhánh trái nối với ĐM đại tràng trái.
+C. Nhánh phải nối với ĐM hồi đại tràng, nhánh trái nối với ĐM sigma.
+D. Cả hai nhánh đều nối với các động mạch thẳng.
+Đáp án: B
+Giải thích: Động mạch đại tràng giữa đi trong mạc treo đại tràng ngang và chia thành nhánh phải và nhánh trái. Nhánh phải nối với nhánh lên của động mạch đại tràng phải. Nhánh trái nối với nhánh lên của động mạch đại tràng trái, tạo thành một phần quan trọng của cung mạch bờ.
+Câu 146. Động mạch mạc treo tràng dưới (IMA) xuất phát từ động mạch chủ bụng ở ngang mức đốt sống nào?
+A. T12.
+B. L1.
+C. L3.
+D. L5.
+Đáp án: C
+Giải thích: Động mạch mạc treo tràng dưới thường xuất phát từ mặt trước hoặc trước trái của động mạch chủ bụng ở ngang mức đốt sống thắt lưng III (L3​), khoảng 3-4 cm trên chỗ chia đôi của động mạch chủ.
+Câu 147. Nhánh tận cùng của động mạch mạc treo tràng dưới là động mạch nào?
+A. Động mạch đại tràng trái.
+B. Các động mạch sigma.
+C. Động mạch trực tràng trên.
+D. Động mạch bờ Drummond.
+Đáp án: C
+Giải thích: Sau khi cho các nhánh bên là động mạch đại tràng trái và các động mạch sigma, động mạch mạc treo tràng dưới tiếp tục đi xuống vào chậu hông và đổi tên thành động mạch trực tràng trên, là nhánh tận cùng của nó, cấp máu cho phần lớn trực tràng.
+Câu 148. "Động mạch bờ Drummond" là gì?
+A. Một động mạch duy nhất chạy dọc toàn bộ ruột non.
+B. Một chuỗi các cung mạch nối tiếp liên tục chạy dọc bờ trong của đại tràng.
+C. Tên gọi khác của động mạch đại tràng giữa.
+D. Một vòng nối trực tiếp giữa SMA và IMA ở sau phúc mạc.
+Đáp án: B
+Giải thích: Động mạch bờ Drummond là một chuỗi mạch máu liên tục được tạo thành bởi sự nối tiếp của các nhánh từ động mạch hồi đại tràng, đại tràng phải, đại tràng giữa, đại tràng trái và các động mạch sigma. Cung mạch này chạy song song với toàn bộ khung đại tràng và từ đó cho ra các động mạch thẳng (vasa recta) đi vào thành ruột. Nó đảm bảo sự tuần hoàn bàng hệ cho đại tràng.
+Câu 149. Case lâm sàng: Một bệnh nhân 70 tuổi bị sốc giảm thể tích kéo dài. Sau khi hồi sức, bệnh nhân bị đau bụng và đi cầu ra máu. Nội soi thấy niêm mạc vùng góc lách bị nhợt nhạt, hoại tử. Tình trạng này được gọi là viêm đại tràng thiếu máu cục bộ. Tại sao góc lách lại là vị trí dễ bị tổn thương nhất?
+A. Vì nó là đoạn di động nhất của đại tràng.
+B. Vì nó là vùng "ranh giới" giữa hệ thống SMA và IMA, nơi tuần hoàn bàng hệ có thể yếu nhất.
+C. Vì nó bị chèn ép bởi lách và cơ hoành.
+D. Vì nó có lòng ruột hẹp nhất.
+Đáp án: B
+Giải thích: Vùng góc lách (điểm Griffiths) là nơi nối tiếp giữa nhánh tận cùng của hệ thống SMA (qua động mạch đại tràng giữa) và nhánh đầu tiên của hệ thống IMA (qua động mạch đại tràng trái). Ở một số người, vòng nối của động mạch bờ tại điểm này rất nhỏ hoặc thậm chí không có. Do đó, đây là vùng "ranh giới" hay "đầu nguồn" rất nhạy cảm với tình trạng giảm tưới máu toàn thân, dẫn đến thiếu máu cục bộ.
+Câu 150. Cung Riolan là gì?
+A. Tên gọi khác của động mạch bờ Drummond.
+B. Một cung mạch ngắn, không hằng định, nối trực tiếp thân SMA (hoặc nhánh của nó) với thân IMA (hoặc nhánh của nó).
+C. Vòng nối giữa động mạch trực tràng trên và giữa.
+D. Động mạch cấp máu cho ruột thừa.
+Đáp án: B
+Giải thích: Cung Riolan, hay còn gọi là động mạch mạc treo uốn lượn, là một cung mạch nối không hằng định, nằm gần rễ mạc treo đại tràng ngang. Nó tạo ra một đường nối trực tiếp hơn (so với động mạch bờ) giữa hệ thống SMA (thường là từ động mạch đại tràng giữa) và hệ thống IMA (thường là từ động mạch đại tràng trái). Khi một trong hai động mạch chính bị hẹp hoặc tắc, cung này có thể phình to ra để đảm bảo tuần hoàn bàng hệ.
+Câu 151. Động mạch trực tràng trên cấp máu cho phần nào của trực tràng?
+A. Chỉ 1/3 dưới.
+B. Chỉ 1/3 giữa.
+C. Chủ yếu cho 2/3 trên.
+D. Toàn bộ trực tràng và ống hậu môn.
+Đáp án: C
+Giải thích: Động mạch trực tràng trên, nhánh tận của IMA, là nguồn cấp máu động mạch chính cho 2/3 trên của trực tràng.
+Câu 152. Động mạch trực tràng giữa và dưới là nhánh của động mạch nào?
+A. Động mạch mạc treo tràng dưới.
+B. Động mạch mạc treo tràng trên.
+C. Động mạch chậu trong.
+D. Động mạch chủ bụng.
+Đáp án: C
+Giải thích: Trong khi động mạch trực tràng trên thuộc hệ thống IMA, thì các động mạch trực tràng giữa và dưới thuộc hệ thống động mạch chậu trong. Động mạch trực tràng giữa thường tách ra từ nhánh trước của động mạch chậu trong. Động mạch trực tràng dưới tách ra từ động mạch thẹn trong (là một nhánh của động mạch chậu trong). Sự sắp xếp này tạo ra vòng nối quan trọng giữa hệ IMA và hệ chậu trong.
+Câu 153. Động mạch ruột thừa có đặc điểm nào sau đây?
+A. Là nhánh của động mạch đại tràng phải.
+B. Đi trong mạc treo ruột thừa và là động mạch tận ở đoạn xa.
+C. Có nhiều vòng nối phong phú ở đỉnh ruột thừa.
+D. Xuất phát từ động mạch mạc treo tràng dưới.
+Đáp án: B
+Giải thích: Động mạch ruột thừa thường là nhánh của động mạch hồi đại tràng (từ nhánh manh tràng sau). Nó đi vào trong mạc treo ruột thừa để đến ruột thừa. Quan trọng nhất, đoạn xa của nó được coi là một động mạch tận, không có tuần hoàn bàng hệ hiệu quả, làm cho đỉnh ruột thừa dễ bị hoại tử khi động mạch này bị tắc nghẽn trong viêm ruột thừa.
+Câu 154. Động mạch nào sau đây đi trong mạc treo đại tràng ngang?
+A. Động mạch đại tràng phải.
+B. Động mạch đại tràng trái.
+C. Động mạch đại tràng giữa.
+D. Động mạch hồi đại tràng.
+Đáp án: C
+Giải thích: Động mạch đại tràng giữa sau khi tách ra từ SMA sẽ chạy lên và đi vào giữa hai lá của mạc treo đại tràng ngang để cấp máu cho đại tràng ngang.
+Câu 155. Case lâm sàng: Trong phẫu thuật phình động mạch chủ bụng, kẹp động mạch chủ dưới mức động mạch thận nhưng trên mức động mạch mạc treo tràng dưới (IMA). Sau phẫu thuật, bệnh nhân có nguy cơ bị thiếu máu cục bộ ở đoạn ruột nào nhất nếu tuần hoàn bàng hệ kém?
+A. Ruột non.
+B. Đại tràng phải.
+C. Đại tràng trái (đại tràng xuống, đại tràng sigma).
+D. Dạ dày.
+Đáp án: C
+Giải thích: Việc kẹp động mạch chủ ở vị trí đó sẽ làm gián đoạn dòng máu vào IMA. Nếu tuần hoàn bàng hệ từ hệ thống SMA qua động mạch bờ (Drummond) hoặc cung Riolan không đủ mạnh, toàn bộ vùng do IMA cấp máu - bao gồm 1/3 trái đại tràng ngang, đại tràng xuống, đại tràng sigma và phần trên trực tràng - sẽ có nguy cơ bị thiếu máu cục bộ.
+Câu 156. Các động mạch sigma đi vào mạc treo đại tràng sigma và nối với nhau và với các động mạch nào?
+A. Nối với nhau, với nhánh xuống của ĐM đại tràng trái ở trên và với ĐM trực tràng trên ở dưới.
+B. Nối với động mạch đại tràng giữa.
+C. Nối với động mạch chậu trong.
+D. Nối với các động mạch của ruột non.
+Đáp án: A
+Giải thích: Các động mạch sigma (thường có 2-4 nhánh) tách ra từ IMA, đi vào mạc treo đại tràng sigma. Chúng tạo thành các cung nối với nhau. Cung trên cùng nối với nhánh xuống của động mạch đại tràng trái, và cung dưới cùng nối với động mạch trực tràng trên, góp phần tạo nên sự liên tục của động mạch bờ.
+Câu 157. Động mạch trực tràng dưới sau khi tách ra từ động mạch thẹn trong, nó băng qua cấu trúc nào để đến ống hậu môn?
+A. Khoang sau trực tràng.
+B. Hố ngồi - hậu môn.
+C. Ống bẹn.
+D. Lỗ bịt.
+Đáp án: B
+Giải thích: Động mạch trực tràng dưới là một trong các thành phần đi trong ống Alcock ở thành ngoài của hố ngồi - hậu môn. Từ đó, nó cho các nhánh băng ngang qua lớp mỡ của hố ngồi - hậu môn để đi vào và cấp máu cho phần dưới ống hậu môn, các cơ thắt và da quanh hậu môn.
+Câu 158. Động mạch mạc treo tràng trên (SMA) bị cấu trúc nào của tụy bắt chéo phía trước?
+A. Đầu tụy.
+B. Thân tụy.
+C. Đuôi tụy.
+D. Mỏm móc của tụy.
+Đáp án: D
+Giải thích: Sau khi xuất phát từ động mạch chủ, SMA chạy xuống dưới, đi sau thân tụy nhưng ra phía trước mỏm móc của tụy và phần ngang (D3) của tá tràng. Tĩnh mạch thận trái thường nằm kẹp giữa SMA ở phía trước và động mạch chủ ở phía sau.
+Câu 159. Khi cắt đại tràng sigma, để bảo tồn cấp máu cho đoạn đại tràng xuống còn lại, phẫu thuật viên thường thắt động mạch mạc treo tràng dưới ở vị trí nào?
+A. Ngay tại nguyên ủy từ động mạch chủ.
+B. Ở dưới chỗ cho ra nhánh động mạch đại tràng trái.
+C. Ở trên chỗ cho ra nhánh động mạch đại tràng trái.
+D. Thắt riêng từng động mạch sigma.
+Đáp án: B
+Giải thích: Để giữ lại nguồn cấp máu cho phần đại tràng xuống sẽ được dùng để làm miệng nối, phẫu thuật viên cần bảo tồn động mạch đại tràng trái. Do đó, động mạch mạc treo tràng dưới sẽ được thắt và cắt ở vị trí sau khi nó đã cho ra nhánh động mạch đại tràng trái.
+Câu 160. Vòng nối giữa động mạch trực tràng trên (từ IMA) và động mạch trực tràng giữa/dưới (từ ĐM chậu trong) có ý nghĩa gì trong trường hợp tắc động mạch mạc treo tràng dưới?
+A. Không có ý nghĩa gì.
+B. Nó có thể cung cấp máu ngược dòng từ hệ thống chậu trong để nuôi đại tràng sigma và đại tràng xuống.
+C. Nó gây ra chảy máu ồ ạt.
+D. Nó chỉ cấp máu cho ống hậu môn.
+Đáp án: B
+Giải thích: Đây là một vòng nối tuần hoàn bàng hệ cực kỳ quan trọng. Khi IMA bị tắc mạn tính (ví dụ do xơ vữa), máu có thể đi từ động mạch chậu trong -> động mạch trực tràng giữa/dưới -> nối với động mạch trực tràng trên -> đi ngược dòng lên các động mạch sigma và đại tràng trái để cấp máu cho đại tràng trái. Vòng nối này giúp ngăn ngừa thiếu máu cục bộ cho đoạn ruột này.
+Câu 161. Động mạch nào cấp máu cho các cơ thắt hậu môn và da quanh hậu môn?
+A. Động mạch trực tràng trên.
+B. Động mạch trực tràng giữa.
+C. Động mạch trực tràng dưới.
+D. Động mạch cùng giữa.
+Đáp án: C
+Giải thích: Động mạch trực tràng dưới là nguồn cấp máu chính cho các cấu trúc ở phần thấp của ống hậu môn, bao gồm cả cơ thắt hậu môn trong và ngoài, cũng như da vùng quanh hậu môn.
+Câu 162. Nhánh lên của động mạch đại tràng trái nối với nhánh nào của động mạch đại tràng giữa để tạo thành động mạch bờ ở vùng góc lách?
+A. Nhánh phải.
+B. Nhánh trái.
+C. Thân chính.
+D. Không có sự nối tiếp.
+Đáp án: B
+Giải thích: Nhánh lên của động mạch đại tràng trái (từ IMA) đi lên trong mạc treo đại tràng ngang và nối với nhánh trái của động mạch đại tràng giữa (từ SMA). Vòng nối này, một phần của động mạch bờ Drummond, có vai trò quan trọng trong việc cấp máu cho 1/3 trái đại tràng ngang và góc lách.
+Câu 163. Động mạch manh tràng trước và sau là nhánh của động mạch nào?
+A. Động mạch đại tràng phải.
+B. Động mạch đại tràng giữa.
+C. Động mạch hồi đại tràng.
+D. Động mạch mạc treo tràng dưới.
+Đáp án: C
+Giải thích: Động mạch hồi đại tràng, sau khi đi đến vùng hồi-manh tràng, sẽ cho ra các nhánh manh tràng trước và manh tràng sau để cấp máu cho hai mặt tương ứng của manh tràng.
+Câu 164. Case lâm sàng: Một bệnh nhân bị tắc hoàn toàn động mạch mạc treo tràng trên ngay tại nguyên ủy. Đoạn ruột nào sau đây sẽ KHÔNG bị ảnh hưởng bởi tình trạng thiếu máu này?
+A. Hỗng tràng.
+B. Đại tràng lên.
+C. Đại tràng sigma.
+D. 2/3 phải đại tràng ngang.
+Đáp án: C
+Giải thích: Tắc động mạch mạc treo tràng trên (SMA) sẽ gây thiếu máu toàn bộ vùng nó cấp máu, bao gồm ruột non, manh tràng, đại tràng lên và 2/3 phải đại tràng ngang. Đại tràng sigma được cấp máu bởi động mạch mạc treo tràng dưới (IMA), do đó sẽ không bị ảnh hưởng trực tiếp bởi tắc SMA, miễn là IMA vẫn bình thường.
+Câu 165. Động mạch cùng giữa có đóng góp cấp máu cho vùng hậu môn trực tràng không?
+A. Không, nó chỉ cấp máu cho xương cùng.
+B. Có, nó cho một nhánh nhỏ đến thành sau chỗ nối hậu môn-trực tràng.
+C. Có, nó là nguồn cấp máu chính cho trực tràng.
+D. Có, nó hợp với động mạch trực tràng trên.
+Đáp án: B
+Giải thích: Động mạch cùng giữa, một nhánh nhỏ tận cùng của động mạch chủ bụng, đi xuống trên đường giữa mặt trước xương cùng. Nó có đóng góp một phần nhỏ vào việc cấp máu cho vùng hậu môn trực tràng bằng cách cho một nhánh nhỏ đi vào thành sau của chỗ nối hậu môn-trực tràng.
+Câu 166. Vị trí tương đối của động mạch và tĩnh mạch mạc treo tràng trên là gì?
+A. Động mạch nằm bên phải tĩnh mạch.
+B. Tĩnh mạch nằm bên phải động mạch.
+C. Động mạch nằm phía trước tĩnh mạch.
+D. Tĩnh mạch nằm phía trước động mạch.
+Đáp án: B
+Giải thích: Trong rễ mạc treo ruột non, tĩnh mạch mạc treo tràng trên (SMV) đi song song và nằm ở bên phải của động mạch mạc treo tràng trên (SMA). Đây là một mốc giải phẫu quan trọng trong phẫu thuật.
+Câu 167. Động mạch đại tràng trái, sau khi tách ra từ IMA, thường bắt chéo phía trước cấu trúc nào?
+A. Động mạch chủ bụng.
+B. Tĩnh mạch chủ dưới.
+C. Niệu quản trái và các mạch sinh dục trái.
+D. Thân tụy.
+Đáp án: C
+Giải thích: Động mạch đại tràng trái đi lên và sang trái trong khoang sau phúc mạc. Trên đường đi, nó thường bắt chéo phía trước của niệu quản trái và các mạch tuyến sinh dục trái.
+Câu 168. Các động mạch thẳng (vasa recta) của đại tràng có đặc điểm gì?
+A. Chúng dài và tạo thành nhiều cung nối tiếp như ở ruột non.
+B. Chúng ngắn, ít cung nối và chia thành nhánh ngắn và dài.
+C. Chúng chỉ cấp máu cho lớp thanh mạc.
+D. Chúng xuất phát trực tiếp từ động mạch chủ.
+Đáp án: B
+Giải thích: Khác với ruột non có hệ thống cung mạch phức tạp và các động mạch thẳng dài, hệ thống cấp máu của đại tràng đơn giản hơn. Các động mạch thẳng của đại tràng xuất phát từ động mạch bờ, chúng thường ngắn hơn, ít tạo cung nối và chia thành các nhánh ngắn và dài để đi vào thành đại tràng.
+Câu 169. Động mạch trực tràng giữa thường có đặc điểm gì về sự hiện diện và kích thước?
+A. Luôn có mặt và có kích thước lớn.
+B. Thường vắng mặt hoặc có đường kính rất nhỏ.
+C. Luôn có hai nhánh đối xứng hai bên.
+D. Là nguồn cấp máu chính cho bóng trực tràng.
+Đáp án: B
+Giải thích: Mặc dù được mô tả trong sách giải phẫu, động mạch trực tràng giữa là một động mạch không hằng định. Nó thường vắng mặt ở nhiều cá thể, hoặc nếu có thì cũng có đường kính rất nhỏ và vai trò cấp máu của nó cho thành trực tràng không lớn bằng động mạch trực tràng trên và dưới.
+Câu 170. Ngoài vùng góc lách, vị trí nào khác của đại tràng được xem là có nguy cơ thiếu máu do tuần hoàn bàng hệ kém?
+A. Manh tràng.
+B. Đại tràng ngang đoạn giữa.
+C. Chỗ nối đại tràng sigma - trực tràng.
+D. Đại tràng lên.
+Đáp án: C
+Giải thích: Hai vị trí yếu về mặt tưới máu (điểm yếu Griffith ở góc lách và điểm yếu Sudeck ở chỗ nối đại tràng sigma - trực tràng) là những nơi dễ bị thiếu máu cục bộ nhất trên toàn bộ khung đại tràng.
+        `;
+
+        function parseQuizData(text) {
+            const lines = text.split('\n').map(l => l.trim()).filter(l => l);
+            const questions = [];
+            let currentQ = null;
+            let questionCounter = 1;
+            let skipMode = false; 
+
+            lines.forEach(line => {
+                if (line.match(/^(CÂU HỎI TRẮC NGHIỆM|TEAMDRCAT|Tài liệu|Phần|Mục|Bảng|\[\.\.\.)/i)) return;
+
+                const isOptionA = line.match(/^A[\.\)]\s*(.*)/i);
+                const isOptionB = line.match(/^B[\.\)]\s*(.*)/i);
+                const isOptionC = line.match(/^C[\.\)]\s*(.*)/i);
+                const isOptionD = line.match(/^D[\.\)]\s*(.*)/i);
+                const isAnswer = line.match(/^Đáp án(?: đúng)?:\s*([A-D])/i);
+                const isQuestionHeader = line.match(/^Câu\s*(\d+)(?:[\.\:]\s*(.*))?/i);
+
+                if (isQuestionHeader) {
+                    skipMode = false;
+                    let id = isQuestionHeader[1];
+                    let textPart = isQuestionHeader[2] || '';
+                    currentQ = { id: id, question: textPart, options: {}, answer: '' };
+                } else if (isAnswer) {
+                    if (currentQ) {
+                        currentQ.answer = isAnswer[1].toUpperCase();
+                        questions.push(currentQ);
+                        currentQ = null;
+                        skipMode = true; 
+                    }
+                } else if (!skipMode && currentQ) {
+                    if (isOptionA) currentQ.options['A'] = isOptionA[1].trim();
+                    else if (isOptionB) currentQ.options['B'] = isOptionB[1].trim();
+                    else if (isOptionC) currentQ.options['C'] = isOptionC[1].trim();
+                    else if (isOptionD) currentQ.options['D'] = isOptionD[1].trim();
+                    else if (!line.match(/^(CÂU HỎI TRẮC NGHIỆM|TEAMDRCAT|Tài liệu|Phần|Mục|Bảng)/i)) {
+                        currentQ.question += (currentQ.question ? ' ' : '') + line;
+                    }
+                }
+            });
+            return questions;
+        }
+
+        function App() {
+            const [appState, setAppState] = useState('intro');
+            const [questions, setQuestions] = useState([]);
+            const [currentIndex, setCurrentIndex] = useState(0);
+            const [answers, setAnswers] = useState({});
+            const [flagged, setFlagged] = useState(new Set());
+            const [timeRemaining, setTimeRemaining] = useState(190 * 60); 
+            const [showMatrix, setShowMatrix] = useState(false);
+            const [isPaused, setIsPaused] = useState(false);
+            
+            const scrollContainerRef = useRef(null);
+
+            useEffect(() => {
+                setQuestions(parseQuizData(rawQuizData));
+            }, []);
+
+            useEffect(() => {
+                if (appState === 'result' && scrollContainerRef.current) {
+                    scrollContainerRef.current.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+            }, [appState]);
+
+            useEffect(() => {
+                let timer;
+                if (appState === 'quiz' && !isPaused && timeRemaining > 0) {
+                    timer = setInterval(() => setTimeRemaining(p => p - 1), 1000);
+                } else if (timeRemaining <= 0 && appState === 'quiz') {
+                    setAppState('result');
+                }
+                return () => clearInterval(timer);
+            }, [appState, timeRemaining, isPaused]);
+
+            const formatTime = (seconds) => {
+                const h = Math.floor(seconds / 3600);
+                const m = Math.floor((seconds % 3600) / 60);
+                const s = seconds % 60;
+                if (h > 0) return `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+                return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+            };
+
+            const startQuiz = () => {
+                setAppState('quiz');
+                setAnswers({});
+                setFlagged(new Set());
+                setTimeRemaining(190 * 60); 
+                setCurrentIndex(0);
+                setIsPaused(false);
+            };
+
+            const restartQuiz = () => {
+                setAppState('intro');
+                setAnswers({});
+                setFlagged(new Set());
+                setTimeRemaining(190 * 60);
+                setCurrentIndex(0);
+                setShowMatrix(false);
+                
+                if (scrollContainerRef.current) {
+                    scrollContainerRef.current.scrollTo({ top: 0 });
+                }
+            };
+
+            const togglePause = () => {
+                if (appState === 'quiz') setIsPaused(!isPaused);
+            };
+
+            const handleSelectAnswer = (key) => {
+                if (answers[currentIndex] || appState !== 'quiz' || isPaused) return;
+                setAnswers(prev => ({ ...prev, [currentIndex]: key }));
+            };
+
+            const toggleFlag = () => {
+                const newFlagged = new Set(flagged);
+                if (newFlagged.has(currentIndex)) newFlagged.delete(currentIndex);
+                else newFlagged.add(currentIndex);
+                setFlagged(newFlagged);
+            };
+
+            const calculateScore = () => {
+                return questions.reduce((acc, q, i) => (answers[i] === q.answer ? acc + 1 : acc), 0);
+            };
+
+            const getEncouragement = () => {
+                if(questions.length === 0) return null;
+                const score = calculateScore();
+                const percent = score / questions.length;
+                
+                if (percent >= 0.9) {
+                    return { 
+                        title: "Hệ Tiêu Hóa Hoàn Hảo!", 
+                        text: "Xuất sắc! Kiến thức giải phẫu ruột già của bạn vô cùng vững chắc. Từ manh tràng đến trực tràng đều không làm khó được bạn!", 
+                        icon: "fa-circle-notch", 
+                        color: "text-yellow-600 bg-yellow-50 border-yellow-200" 
+                    };
+                } else if (percent >= 0.7) {
+                    return { 
+                        title: "Nhu Động Ổn Định!", 
+                        text: "Bạn đã làm rất tốt! Chỉ cần ôn lại một chút về các tĩnh mạch và động mạch chậu là bạn sẽ làm chủ hoàn toàn chủ đề này.", 
+                        icon: "fa-stethoscope", 
+                        color: "text-indigo-500 bg-indigo-50 border-indigo-200" 
+                    };
+                } else if (percent >= 0.5) {
+                    return { 
+                        title: "Coi Chừng Tắc Nghẽn!", 
+                        text: "Giải phẫu ruột già khá rắc rối với các mốc giải phẫu hẹp và nếp gấp. Hãy xem lại bài một chút nhé!", 
+                        icon: "fa-book-medical", 
+                        color: "text-orange-500 bg-orange-50 border-orange-200" 
+                    };
+                } else {
+                    return { 
+                        title: "Cần Bổ Sung Lợi Khuẩn!", 
+                        text: "Đừng nản chí! Hãy đọc kỹ lại phần giải thích chi tiết trong tài liệu gốc để nạp thêm kiến thức và làm lại một lần nữa. Mọi thứ sẽ 'thông suốt' thôi!", 
+                        icon: "fa-notes-medical", 
+                        color: "text-red-500 bg-red-50 border-red-200" 
+                    };
+                }
+            };
+
+            if (appState === 'intro') {
+                return (
+                    <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-4">
+                        <div className="max-w-2xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100">
+                            <div className="bg-indigo-600 p-10 flex flex-col items-center text-white text-center">
+                                <div className="bg-white/20 p-5 rounded-full mb-5 shadow-inner">
+                                    <i className="fa-solid fa-circle-notch text-5xl text-white"></i>
+                                </div>
+                                <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-2">Giải Phẫu Ruột Già</h1>
+                                <p className="text-indigo-100 text-lg font-medium opacity-90 tracking-wide">TÀI LIỆU ĐƯỢC BIÊN SOẠN BỞI TEAMDRCAT</p>
+                            </div>
+                            <div className="p-10">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                    <div className="flex items-center gap-4 bg-slate-50 p-5 rounded-2xl border border-slate-100 shadow-sm">
+                                        <div className="bg-blue-100 p-3 rounded-xl text-blue-600">
+                                            <i className="fa-solid fa-list-check text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <p className="text-xs text-slate-400 font-bold uppercase">Tổng câu hỏi</p>
+                                            <p className="text-2xl font-black text-slate-800">{questions.length}</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-4 bg-slate-50 p-5 rounded-2xl border border-slate-100 shadow-sm">
+                                        <div className="bg-orange-100 p-3 rounded-xl text-orange-600">
+                                            <i className="fa-regular fa-clock text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <p className="text-xs text-slate-400 font-bold uppercase">Thời gian</p>
+                                            <p className="text-2xl font-black text-slate-800">190 Phút</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div className="bg-indigo-50 rounded-2xl p-6 mb-10 border border-indigo-100 flex items-start gap-4 text-indigo-800">
+                                    <i className="fa-solid fa-circle-exclamation shrink-0 mt-1 text-xl"></i>
+                                    <div className="text-sm leading-relaxed">
+                                        <p className="font-bold mb-1">Hướng dẫn làm bài:</p>
+                                        <ul className="list-disc pl-5 space-y-1">
+                                            <li>Kết quả đúng/sai sẽ hiển thị <strong className="text-indigo-700">ngay lập tức</strong> khi chọn.</li>
+                                            <li>Khi đã chọn, bạn <strong className="text-indigo-700">không thể thay đổi</strong> đáp án của câu đó.</li>
+                                            <li>Sử dụng nút <strong className="text-indigo-700">Đánh dấu cờ</strong> để lưu lại những câu khó.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <button 
+                                    onClick={startQuiz}
+                                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xl font-bold py-5 rounded-2xl transition-all shadow-lg hover:shadow-indigo-600/40 flex items-center justify-center gap-3 uppercase tracking-wide"
+                                >
+                                    <i className="fa-solid fa-play text-xl"></i> Bắt đầu làm bài
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+
+            const currentQ = questions[currentIndex];
+            const hasAnsweredCurrent = !!answers[currentIndex];
+            const msg = getEncouragement();
+
+            return (
+                <div className="min-h-screen bg-slate-50 flex flex-col md:flex-row">
+                    {showMatrix && <div className="fixed inset-0 bg-slate-900/60 z-20 md:hidden backdrop-blur-sm" onClick={() => setShowMatrix(false)}></div>}
+                    
+                    <aside className={`
+                        fixed md:sticky top-0 right-0 h-screen w-[360px] md:w-[450px] bg-white border-l border-slate-200 z-30 flex flex-col transition-transform duration-300
+                        ${showMatrix ? 'translate-x-0' : 'translate-x-full md:translate-x-0'} md:order-2 shadow-2xl md:shadow-none
+                    `}>
+                        <div className="p-6 border-b flex justify-between items-center bg-white sticky top-0">
+                            <h2 className="font-black text-slate-800 flex items-center gap-2 uppercase tracking-tighter text-lg">
+                                <i className="fa-solid fa-book-open text-xl text-indigo-600"></i> Danh sách câu hỏi
+                            </h2>
+                            <button className="md:hidden text-slate-400 p-2 bg-slate-100 rounded-full hover:bg-slate-200 transition-colors" onClick={() => setShowMatrix(false)}>
+                                <i className="fa-solid fa-xmark text-xl w-6 h-6 flex items-center justify-center"></i>
+                            </button>
+                        </div>
+                        <div className="flex-1 overflow-y-auto p-6 custom-scrollbar grid grid-cols-6 gap-3 content-start">
+                            {questions.map((q, i) => {
+                                let style = "bg-slate-50 text-slate-400 border-slate-200";
+                                const isAns = !!answers[i];
+                                if (isAns) {
+                                    style = answers[i] === questions[i].answer ? "bg-emerald-100 text-emerald-700 border-emerald-300" : "bg-red-100 text-red-700 border-red-300";
+                                }
+                                if (currentIndex === i && appState !== 'review') style += " ring-2 ring-indigo-500 ring-offset-2";
+                                if (flagged.has(i)) style += " !border-orange-400 !bg-orange-50";
+
+                                return (
+                                    <button 
+                                        key={i}
+                                        onClick={() => { 
+                                            if (appState === 'review') {
+                                                document.getElementById(`review-q-${i}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                            } else {
+                                                setCurrentIndex(i); 
+                                            }
+                                            if(window.innerWidth < 768) setShowMatrix(false); 
+                                        }}
+                                        className={`h-12 w-full rounded-xl text-sm font-extrabold border-2 transition-all relative flex items-center justify-center hover:brightness-95 ${style}`}
+                                    >
+                                        {i + 1}
+                                        {flagged.has(i) && <div className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 bg-orange-500 rounded-full border-2 border-white shadow-sm"></div>}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                        <div className="p-6 border-t bg-slate-50">
+                            {appState === 'quiz' ? (
+                                <button onClick={() => setAppState('result')} className="w-full bg-slate-900 text-white font-bold py-4 rounded-xl shadow-lg flex items-center justify-center gap-2 uppercase tracking-wider hover:bg-slate-800 transition-colors">
+                                    <i className="fa-solid fa-paper-plane text-lg"></i> Nộp bài
+                                </button>
+                            ) : appState === 'review' ? (
+                                <button onClick={() => setAppState('result')} className="w-full bg-slate-900 text-white font-bold py-4 rounded-xl shadow-lg flex items-center justify-center gap-2 uppercase tracking-wider hover:bg-slate-800 transition-colors">
+                                    <i className="fa-solid fa-arrow-left text-lg"></i> Về bảng điểm
+                                </button>
+                            ) : (
+                                <button onClick={restartQuiz} className="w-full bg-indigo-600 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-indigo-700 transition-colors">
+                                    <i className="fa-solid fa-rotate-right text-lg"></i> Làm lại từ đầu
+                                </button>
+                            )}
+                        </div>
+                    </aside>
+
+                    <main className="flex-1 flex flex-col h-screen md:order-1 overflow-hidden">
+                        <header className="bg-white border-b px-6 py-4 flex items-center justify-between sticky top-0 z-10 shadow-sm">
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-indigo-200">
+                                    <i className="fa-solid fa-circle-notch text-2xl"></i>
+                                </div>
+                                <div className="hidden sm:block">
+                                    <h1 className="text-sm font-black text-slate-800 uppercase tracking-tight line-clamp-1">Giải Phẫu Ruột Già</h1>
+                                    <p className="text-[11px] text-slate-400 font-bold uppercase tracking-widest">Tài liệu được biên soạn bởi TeamDrCat</p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-center gap-4">
+                                {appState === 'quiz' && (
+                                    <React.Fragment>
+                                        <div className={`px-5 py-2.5 rounded-2xl font-mono text-xl font-black border-2 flex items-center gap-2 ${timeRemaining < 300 ? 'bg-red-50 border-red-200 text-red-600 animate-pulse' : 'bg-slate-50 border-slate-200 text-slate-700'}`}>
+                                            <i className="fa-regular fa-clock text-xl"></i>
+                                            {formatTime(timeRemaining)}
+                                        </div>
+                                        <button onClick={togglePause} className="p-3 bg-slate-100 rounded-2xl hover:bg-slate-200 transition-colors text-indigo-600">
+                                            {isPaused ? <i className="fa-solid fa-play text-xl"></i> : <i className="fa-solid fa-pause text-xl"></i>}
+                                        </button>
+                                    </React.Fragment>
+                                )}
+                                {appState === 'review' && (
+                                    <div className="px-5 py-2.5 rounded-2xl font-bold bg-orange-100 text-orange-700 flex items-center gap-2">
+                                        <i className="fa-solid fa-eye text-lg"></i> <span className="hidden sm:inline">Chế độ xem lại</span>
+                                    </div>
+                                )}
+                                <button className="md:hidden bg-indigo-50 text-indigo-600 px-4 py-3 font-bold rounded-2xl flex items-center gap-2" onClick={() => setShowMatrix(true)}>
+                                    <i className="fa-solid fa-bars text-lg"></i> <span className="text-sm">Câu hỏi</span>
+                                </button>
+                            </div>
+                        </header>
+
+                        <div ref={scrollContainerRef} className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
+                            <div className="max-w-4xl mx-auto w-full pb-8">
+                                {isPaused ? (
+                                    <div className="bg-white rounded-3xl p-16 text-center shadow-xl border border-slate-100 animate-in fade-in zoom-in duration-300 mt-10">
+                                        <div className="w-24 h-24 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-8">
+                                            <i className="fa-solid fa-pause text-5xl"></i>
+                                        </div>
+                                        <h2 className="text-3xl font-black text-slate-800 mb-4">Bài thi đang tạm dừng</h2>
+                                        <p className="text-slate-500 mb-10 text-lg">Hệ thống đã dừng thời gian để bạn nghỉ ngơi.</p>
+                                        <button onClick={togglePause} className="bg-indigo-600 text-white px-12 py-4 rounded-2xl font-bold text-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all">Tiếp tục ngay</button>
+                                    </div>
+                                ) : appState === 'result' ? (
+                                    <div className="space-y-8 animate-in slide-in-from-bottom-8 duration-500 mt-4">
+                                        <div className="bg-white p-10 md:p-12 rounded-[2rem] text-center shadow-xl border border-slate-100 relative overflow-hidden">
+                                            <div className="absolute top-0 left-0 w-full h-2 bg-emerald-500"></div>
+                                            <div className="w-24 h-24 bg-emerald-500 text-white rounded-full flex items-center justify-center text-5xl mx-auto mb-6 shadow-lg border-4 border-emerald-50">
+                                                <i className="fa-solid fa-shield-halved text-4xl"></i>
+                                            </div>
+                                            <h2 className="text-3xl font-black text-slate-800 mb-6">Hoàn thành bài test!</h2>
+                                            
+                                            {msg && (
+                                                <div className={`p-6 rounded-2xl border mb-8 flex flex-col items-center gap-2 ${msg.color}`}>
+                                                    <i className={`fa-solid ${msg.icon} text-4xl mb-1 opacity-80`}></i>
+                                                    <h3 className="text-xl font-black uppercase tracking-wide">{msg.title}</h3>
+                                                    <p className="text-base font-medium opacity-90 max-w-lg">{msg.text}</p>
+                                                </div>
+                                            )}
+
+                                            <div className="flex flex-col items-center gap-1 mb-8">
+                                                <div className="flex items-baseline gap-2">
+                                                    <span className="text-7xl font-black text-slate-900 tracking-tighter">{calculateScore()}</span>
+                                                    <span className="text-2xl font-bold text-slate-300">/ {questions.length}</span>
+                                                </div>
+                                                <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">Điểm số của bạn</p>
+                                            </div>
+                                            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                                <div className="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
+                                                    <p className="text-[10px] font-black text-emerald-600 uppercase mb-1">Đúng</p>
+                                                    <p className="text-xl font-black text-emerald-700">{calculateScore()}</p>
+                                                </div>
+                                                <div className="bg-red-50 p-3 rounded-xl border border-red-100">
+                                                    <p className="text-[10px] font-black text-red-600 uppercase mb-1">Sai</p>
+                                                    <p className="text-xl font-black text-red-700">{Object.keys(answers).length - calculateScore()}</p>
+                                                </div>
+                                                <div className="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                                    <p className="text-[10px] font-black text-slate-400 uppercase mb-1">Bỏ qua</p>
+                                                    <p className="text-xl font-black text-slate-500">{questions.length - Object.keys(answers).length}</p>
+                                                </div>
+                                                <div className="bg-orange-50 p-3 rounded-xl border border-orange-100">
+                                                    <p className="text-[10px] font-black text-orange-600 uppercase mb-1">Cờ</p>
+                                                    <p className="text-xl font-black text-orange-700">{flagged.size}</p>
+                                                </div>
+                                            </div>
+
+                                            <div className="mt-8 p-5 bg-indigo-50 rounded-xl border border-indigo-100 flex flex-col md:flex-row items-center justify-center gap-4">
+                                                <i className="fa-solid fa-circle-info text-3xl text-indigo-500 shrink-0"></i>
+                                                <p className="text-indigo-900 font-medium text-sm md:text-base text-left">
+                                                    Bạn có thể tra cứu giải thích đáp án chi tiết ở bản <strong className="text-indigo-700 uppercase tracking-wide">PDF</strong> do <strong className="text-slate-900 uppercase tracking-wide">TEAMDRCAT</strong> biên soạn.
+                                                </p>
+                                            </div>
+
+                                            <button 
+                                                onClick={restartQuiz}
+                                                className="w-full mt-6 bg-slate-900 hover:bg-slate-800 text-white text-lg font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-slate-500/30 uppercase tracking-wide"
+                                            >
+                                                <i className="fa-solid fa-rotate-right text-xl"></i> Làm lại bài test
+                                            </button>
+                                            
+                                            <button 
+                                                onClick={() => { setAppState('review'); setCurrentIndex(0); }}
+                                                className="w-full mt-3 bg-orange-100 hover:bg-orange-200 text-orange-700 text-lg font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all uppercase tracking-wide"
+                                            >
+                                                <i className="fa-solid fa-eye text-xl"></i> Xem lại bài làm
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                ) : appState === 'review' ? (
+                                    <div className="space-y-6 animate-in fade-in duration-300">
+                                        <div className="bg-orange-50 p-4 rounded-2xl border border-orange-200 flex items-center justify-between shadow-sm sticky top-0 z-20">
+                                            <h2 className="text-lg font-black text-orange-800 uppercase tracking-tight"><i className="fa-solid fa-list-check mr-2"></i> Danh sách tất cả câu hỏi</h2>
+                                        </div>
+                                        {questions.map((q, index) => {
+                                            const isSelected = !!answers[index];
+                                            const isCorrect = answers[index] === q.answer;
+                                            
+                                            return (
+                                                <div key={index} id={`review-q-${index}`} className={`bg-white rounded-[1.5rem] shadow-sm border-2 p-6 md:p-8 relative overflow-hidden ${isSelected ? (isCorrect ? 'border-emerald-200' : 'border-red-200') : 'border-slate-200'}`}>
+                                                    <div className="flex justify-between items-center mb-6">
+                                                        <div className="flex items-center gap-3">
+                                                            <span className={`px-4 py-1.5 rounded-lg text-xs font-black uppercase tracking-widest text-white shadow-sm ${isSelected ? (isCorrect ? 'bg-emerald-500' : 'bg-red-500') : 'bg-slate-400'}`}>
+                                                                Câu {q.id}
+                                                            </span>
+                                                            {isSelected ? (
+                                                                isCorrect ? <span className="text-emerald-600 font-bold text-sm"><i className="fa-solid fa-check mr-1"></i>Đúng</span>
+                                                                : <span className="text-red-600 font-bold text-sm"><i className="fa-solid fa-xmark mr-1"></i>Sai</span>
+                                                            ) : <span className="text-slate-500 font-bold text-sm"><i className="fa-solid fa-minus mr-1"></i>Chưa trả lời</span>}
+                                                        </div>
+                                                    </div>
+                                                    <h3 className="text-lg md:text-xl font-bold text-slate-800 leading-snug mb-6">{q.question}</h3>
+                                                    <div className="grid gap-3">
+                                                        {['A', 'B', 'C', 'D'].map(key => {
+                                                            const label = q.options[key];
+                                                            if (!label) return null;
+
+                                                            const isUserChoice = answers[index] === key;
+                                                            const isCorrectOption = q.answer === key;
+
+                                                            let stateStyle = "border-slate-200 bg-slate-50 text-slate-500 opacity-70 grayscale";
+                                                            if (isCorrectOption) {
+                                                                stateStyle = "bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm ring-1 ring-emerald-500";
+                                                            } else if (isUserChoice) {
+                                                                stateStyle = "bg-red-50 border-red-500 text-red-800 shadow-sm";
+                                                            }
+
+                                                            return (
+                                                                <div key={key} className={`w-full p-4 rounded-xl border-2 text-left flex items-center gap-4 relative ${stateStyle}`}>
+                                                                    <span className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-base shrink-0 ${isCorrectOption ? 'bg-emerald-500 text-white border-emerald-500' : isUserChoice ? 'bg-red-500 text-white border-red-500' : 'bg-white text-slate-500 border-2 border-slate-200'}`}>
+                                                                        {key}
+                                                                    </span>
+                                                                    <span className="text-base font-medium leading-normal flex-1 pr-8">{label}</span>
+                                                                    {isCorrectOption && <i className="fa-solid fa-circle-check text-2xl text-emerald-500 absolute right-4 top-1/2 -translate-y-1/2"></i>}
+                                                                    {isUserChoice && !isCorrectOption && <i className="fa-solid fa-circle-xmark text-2xl text-red-500 absolute right-4 top-1/2 -translate-y-1/2"></i>}
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                ) : (
+                                    <div className="space-y-4">
+                                        <div className="bg-white rounded-[1.5rem] shadow-sm border border-slate-200 p-6 md:p-8 relative overflow-hidden">
+                                            <div className="flex justify-between items-center mb-6">
+                                                <div className="flex items-center gap-2">
+                                                    <span className="bg-indigo-600 text-white px-4 py-1.5 rounded-lg text-xs font-black uppercase tracking-widest shadow-sm">Câu {currentQ?.id}</span>
+                                                    <span className="text-slate-400 font-bold text-xs tracking-widest uppercase">/ {questions.length}</span>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <button onClick={toggleFlag} className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${flagged.has(currentIndex) ? 'bg-orange-50 border-orange-400 text-orange-600' : 'bg-white border-slate-200 text-slate-400 hover:text-slate-600 hover:border-slate-300'}`}>
+                                                        <i className={"fa-solid fa-flag text-sm " + (flagged.has(currentIndex) ? 'text-orange-600' : '')}></i>
+                                                        <span className="hidden sm:inline">{flagged.has(currentIndex) ? 'Đã đánh dấu' : 'Đánh dấu'}</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <h3 className="text-lg md:text-xl font-bold text-slate-800 leading-snug mb-6">{currentQ?.question}</h3>
+
+                                            <div className="grid gap-3">
+                                                {['A', 'B', 'C', 'D'].map(key => {
+                                                    const label = currentQ?.options[key];
+                                                    if (!label) return null;
+
+                                                    const isSelected = answers[currentIndex] === key;
+                                                    const isCorrect = currentQ.answer === key;
+                                                    const showAnswerState = hasAnsweredCurrent;
+
+                                                    let stateStyle = "border-slate-200 bg-white hover:border-indigo-300 hover:bg-indigo-50/50";
+                                                    if (showAnswerState) {
+                                                        if (isCorrect) stateStyle = "bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm";
+                                                        else if (isSelected) stateStyle = "bg-red-50 border-red-500 text-red-800 shadow-sm";
+                                                        else stateStyle = "opacity-50 border-slate-100 bg-slate-50 grayscale";
+                                                    }
+
+                                                    return (
+                                                        <button 
+                                                            key={key}
+                                                            onClick={() => handleSelectAnswer(key)}
+                                                            disabled={showAnswerState}
+                                                            className={`group w-full p-4 rounded-xl border-2 text-left flex items-center gap-4 option-transition relative ${stateStyle}`}
+                                                        >
+                                                            <span className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-base shrink-0 transition-all ${
+                                                                showAnswerState ? (isCorrect ? 'bg-emerald-500 text-white border-emerald-500' : isSelected ? 'bg-red-500 text-white border-red-500' : 'bg-slate-200 text-slate-400 border-slate-200') :
+                                                                'bg-white text-slate-500 border-2 border-slate-200 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600'
+                                                            }`}>
+                                                                {key}
+                                                            </span>
+                                                            <span className="text-base font-medium leading-normal flex-1 pr-8">{label}</span>
+                                                            
+                                                            {showAnswerState && isCorrect && <i className="fa-solid fa-circle-check text-2xl text-emerald-500 absolute right-4 top-1/2 -translate-y-1/2"></i>}
+                                                            {showAnswerState && isSelected && !isCorrect && <i className="fa-solid fa-circle-xmark text-2xl text-red-500 absolute right-4 top-1/2 -translate-y-1/2"></i>}
+                                                        </button>
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+
+                                        <div className="flex items-center justify-between gap-4 pt-4 pb-20 md:pb-4">
+                                            <button 
+                                                onClick={() => setCurrentIndex(p => Math.max(0, p - 1))}
+                                                disabled={currentIndex === 0}
+                                                className="flex-1 bg-white border border-slate-200 px-6 py-3.5 rounded-xl font-bold text-slate-500 hover:text-slate-800 hover:border-slate-300 hover:bg-slate-50 disabled:opacity-0 transition-all flex items-center justify-center gap-2 uppercase tracking-wide text-xs"
+                                            >
+                                                <i className="fa-solid fa-chevron-left text-sm"></i> <span className="hidden sm:inline">Câu trước</span>
+                                            </button>
+                                            <button 
+                                                onClick={() => setCurrentIndex(p => Math.min(questions.length - 1, p + 1))}
+                                                disabled={currentIndex === questions.length - 1}
+                                                className="flex-1 bg-white border border-slate-200 px-6 py-3.5 rounded-xl font-bold text-slate-800 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm flex items-center justify-center gap-2 uppercase tracking-wide text-xs"
+                                            >
+                                                <span className="hidden sm:inline">Câu tiếp</span> <i className="fa-solid fa-chevron-right text-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
